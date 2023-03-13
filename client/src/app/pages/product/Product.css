@@ -1,0 +1,87 @@
+.dropdown_hidden {
+  max-height: 0px;
+  -webkit-transition: height, 0.5s linear;
+  -moz-transition: height, 0.5s linear;
+  -ms-transition: height, 0.5s linear;
+  -o-transition: height, 0.5s linear;
+  transition: height, 0.5s linear;
+  opacity: 0;
+  overflow: hidden;
+}
+.dropdown_hidden.dropdown {
+  max-height: 250px;
+  -webkit-transition: height, 0.5s linear;
+  -moz-transition: height, 0.5s linear;
+  -ms-transition: height, 0.5s linear;
+  -o-transition: height, 0.5s linear;
+  transition: height, 0.5s linear;
+  opacity: 1;
+}
+
+.size_dropdown_hidden {
+  position: absolute;
+  -webkit-transition: height, 0.5s linear;
+  -moz-transition: height, 0.5s linear;
+  -ms-transition: height, 0.5s linear;
+  -o-transition: height, 0.5s linear;
+  transition: height, 0.1s linear;
+  top: 100%;
+  max-height: 0;
+  /* width: calc(100% + 2px);
+  left: -1px; */
+  width: 100%;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.size_dropdown_hidden.size_dropdown {
+  position: absolute;
+  border-left: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  border-right: 1px solid #1a1a1a;
+  -webkit-transition: height, 0.5s linear;
+  -moz-transition: height, 0.5s linear;
+  -ms-transition: height, 0.5s linear;
+  -o-transition: height, 0.5s linear;
+  transition: height, 0.1s linear;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  background-color: #ffff;
+  max-height: 300px;
+  opacity: 1;
+}
+
+.filter_dropdown_hidden {
+  position: absolute;
+  -webkit-transition: height, 0.5s linear;
+  -moz-transition: height, 0.5s linear;
+  -ms-transition: height, 0.5s linear;
+  -o-transition: height, 0.5s linear;
+  transition: height, 0.5s linear;
+  top: 100%;
+  max-height: 0;
+  width: 100%;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.filter_dropdown_hidden.filter_dropdown {
+  position: absolute;
+  border-left: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  border-right: 1px solid #1a1a1a;
+  -webkit-transition: height, 0.5s linear;
+  -moz-transition: height, 0.5s linear;
+  -ms-transition: height, 0.5s linear;
+  -o-transition: height, 0.5s linear;
+  transition: height, 0.5s linear;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  background-color: #ffff;
+  max-height: 300px;
+  opacity: 1;
+}

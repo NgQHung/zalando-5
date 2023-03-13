@@ -1,0 +1,110 @@
+.navtools {
+  padding: 10px;
+  border: 1px solid transparent;
+  position: relative;
+}
+.navtools:hover {
+  outline: 1px solid transparent;
+  padding: 10px;
+  border: 1px solid #1a1a1a;
+}
+
+.navtools:hover::after {
+  content: "";
+  position: absolute;
+  background-color: #ffff;
+  height: 1px;
+  width: 102%;
+  top: 100%;
+  left: -0.5px;
+  z-index: 10001;
+  transition: background-color 0.15s ease-in-out;
+}
+.navtools__add {
+  outline: 1px solid transparent;
+  padding: 10px;
+  border: 1px solid #1a1a1a;
+}
+.navtools__add::after {
+  content: "";
+  position: absolute;
+  background-color: #ffff;
+  height: 1px;
+  width: 102%;
+  top: 100%;
+  left: -0.5px;
+  z-index: 10000;
+  transition: background-color 0.15s ease-in-out;
+}
+
+/* .navtools_basket, */
+.navtools__basket-hidden::before,
+.navtools_user-hidden::before {
+  content: "";
+  position: absolute;
+  background-color: #ffff;
+  height: 1px;
+  width: 41px;
+  top: 0;
+  right: 0.5px;
+  z-index: 10000;
+  /* transition: background-color 0.15s ease-in-out; */
+}
+
+.navtools_user-hidden {
+  position: absolute;
+  top: 100%;
+  right: -1px;
+  width: 296px;
+  max-height: 0;
+  /* opacity: 0; */
+  overflow: hidden;
+  background-color: #ffff;
+  z-index: 10000;
+}
+.navtools_user-hidden.navtools_user {
+  position: absolute;
+  top: 100%;
+  right: -1px;
+  width: 296px;
+  max-height: 600px;
+  transition: height, 0.5s ease-in-out 0.1s;
+  background-color: #ffff;
+  z-index: 10000;
+}
+
+.navtools__basket-hidden {
+  position: absolute;
+  top: 100%;
+  right: -1px;
+  width: 336px;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #ffff;
+  z-index: 10000;
+}
+.navtools__basket-hidden.navtools__basket {
+  position: absolute;
+  border: 1px solid #1a1a1a;
+  top: 100%;
+  right: -1px;
+  width: 336px;
+  max-height: 600px;
+  transition: height, 0.5s ease-in-out 0.1s;
+  background-color: #ffff;
+  z-index: 10000;
+}
+
+.header_gender {
+  padding: 8px 6px;
+  /* color: #ffff; */
+  color: #1a1a1a;
+  cursor: pointer;
+}
+.header_gender:hover {
+  background-color: #efeff0;
+}
+.active_gender {
+  background-color: #1a1a1a;
+  color: #ffff;
+}

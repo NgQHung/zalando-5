@@ -1,0 +1,86 @@
+{
+  "name": "zalando",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/material": "^5.10.9",
+    "@react-spring/web": "^9.5.5",
+    "@reduxjs/toolkit": "^1.8.5",
+    "@types/jwt-decode": "^3.1.0",
+    "@types/lodash": "^4.14.186",
+    "@types/node": "^16.11.59",
+    "@types/react-helmet": "^6.1.5",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-transition-group": "^4.4.5",
+    "@types/redux-persist": "^4.3.1",
+    "@types/styled-components": "^5.1.26",
+    "@types/uuid": "^8.3.4",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.2",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "font-awesome": "^4.7.0",
+    "framer-motion": "^7.3.5",
+    "jwt-decode": "^3.1.2",
+    "lodash": "^4.17.21",
+    "parser": "@typescript-eslint/parser",
+    "react": "^18.2.0",
+    "react-aria": "^3.19.0",
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^3.1.4",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.4.0",
+    "react-redux": "^8.0.4",
+    "react-router-dom": "^6.4.0",
+    "react-scripts": "5.0.1",
+    "react-spring": "^9.5.5",
+    "react-toastify": "^9.0.8",
+    "react-transition-group": "^4.4.5",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.6",
+    "swiper": "^8.4.3",
+    "typescript": "^4.8.3",
+    "uuid": "^9.0.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "backend": "cd.. && cd server && npm run dev",
+    "start": "react-scripts start",
+    "dev": "concurrently -n 'client,server' -c 'red,green' \"react-scripts start\" \"npm run backend\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "eslint": "eslint src/index.ts"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.24.0",
+    "tailwindcss": "^3.1.8"
+  }
+}

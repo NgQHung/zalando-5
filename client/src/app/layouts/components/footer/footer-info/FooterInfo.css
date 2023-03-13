@@ -1,0 +1,22 @@
+/* mobile */
+.footerInfo_dropdown_hidden {
+  position: relative;
+  max-height: 0;
+  width: 100%;
+  transition: height, 0.2s linear;
+  overflow: hidden;
+}
+.footerInfo_dropdown {
+  position: relative;
+  max-height: 300px;
+  width: 100%;
+  transition: height, 0.2s linear;
+}
+.normal_state {
+  transform: rotate(0);
+  transition: transform, 0.2s linear;
+}
+.rotate_state {
+  transform: rotate(-180deg);
+  transition: transform, 0.2s linear;
+}
