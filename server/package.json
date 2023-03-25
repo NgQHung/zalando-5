@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "^18.7.23"
+    "node": "14.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.ts ",
+    "start": "ts-node-dev --files server.ts",
     "dev": "ts-node-dev --files server.ts"
   },
   "keywords": [],
