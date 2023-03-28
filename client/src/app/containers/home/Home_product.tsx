@@ -1,10 +1,10 @@
-import { faArrowRight, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Products } from "../../../interfaces/Products";
 import WrapperRowFull from "../../components/UI/wrapper/WrapperRowFull";
-import { useAppSelector } from "../../hooks";
+// import { useAppSelector } from "../../hooks";
 
 interface IProps {
   products: Products[];
@@ -13,9 +13,9 @@ interface IProps {
 }
 
 const HOME_PRODUCT = ({ products, selectedProductHandler, favoriteHandler }: IProps) => {
-  const likedProduct = useAppSelector((state) => state.cartSlice.addedFavorite);
-  const addedFavorite = useAppSelector((state) => state.cartSlice.addedFavorite);
-  const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
+  // const likedProduct = useAppSelector((state) => state.cartSlice.addedFavorite);
+  // const addedFavorite = useAppSelector((state) => state.cartSlice.addedFavorite);
+  // const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
   return (
     <WrapperRowFull className="h-[584px] bg-[#34d27b] ">
       <>

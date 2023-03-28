@@ -6,7 +6,7 @@ import { User_signup } from "../interfaces/authentication";
 import { authAxios } from "../utils/authentication/axiosAuth";
 import { UIActions } from "../stores/UI-slice";
 import { userActions } from "../stores/user-slice";
-import { refreshPage } from "../utils/refreshPage";
+// import { refreshPage } from "../utils/refreshPage";
 import { authenticationActions } from "../stores/authentication-slice";
 const uriBase = {
   // server: "http://localhost:8080",
@@ -29,7 +29,7 @@ export const requestLogin = (
   try {
     dispatch(UIActions.loadingPage(true));
     setTimeout(async () => {
-      const response = await authAxios
+      await authAxios
         .post(`/v1/auth/login`, user)
         .then((data) => {
           dispatch(userActions.loginHandler(data.data));
@@ -85,11 +85,11 @@ export const requestLogout = (dispatch: Dispatch, navigate: NavigateFunction, ac
     },
     withCredentials: true,
   });
-  let response;
+  // let response;
   try {
     dispatch(UIActions.loadingPage(true));
     setTimeout(async () => {
-      response = await authAxios.post(`/v1/auth/logout`);
+      await authAxios.post(`/v1/auth/logout`);
       dispatch(userActions.logoutHandler());
       dispatch(UIActions.loadingPage(false));
     }, 1000);

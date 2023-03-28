@@ -9,7 +9,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../../components/ErrorBoundary";
 import Loading from "../../components/UI/loader/Loading";
 import { productActions } from "../../../stores/product-slice";
-import { Products } from "../../../interfaces/Products";
+// import { Products } from "../../../interfaces/Products";
 
 const PRODUCT_IMAGES = React.lazy(() => import("../../containers/product/Product_Images"));
 const Sliding_products = React.lazy(() => import("../../containers/product/sliding_products"));
@@ -18,7 +18,7 @@ const Product_info = React.lazy(() => import("../../containers/product/product_i
 const Product = () => {
   const selectedId = useAppSelector((state) => state.productSlice.selectedId);
   const selectedProduct = useAppSelector((state) => state.productSlice.selectedProduct);
-  const allProducts: Products[] = useAppSelector((state) => state.productSlice.allProducts);
+  // const allProducts: Products[] = useAppSelector((state) => state.productSlice.allProducts);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
 
   const isImage = selectedProduct?.media?.images!;

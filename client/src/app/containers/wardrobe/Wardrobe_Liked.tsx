@@ -4,9 +4,9 @@ import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { ProductDetail } from "../../../interfaces/ProductDetail";
 import { Products } from "../../../interfaces/Products";
-import { postLikedProductById } from "../../../services/apiRequest";
+// import { postLikedProductById } from "../../../services/apiRequest";
 import { ImgToHttp } from "../../../utils/imageToHTTP";
-import { useAppDispatch, useAppSelector } from "../../hooks";
+import { useAppSelector } from "../../hooks";
 
 const WARDROBE_LIKED = () => {
   const addedFavoriteProducts = useAppSelector((state) => state.cartSlice.addedFavorite);
@@ -17,8 +17,8 @@ const WARDROBE_LIKED = () => {
     addedFavoriteProducts?.length !== 0 ? addedFavoriteProducts.length : addedFavoriteProductsFromDB.length;
   const addedFavoriteToShow = addedFavoriteProducts.slice(0, 4);
   const addedFavoriteProductsFromDBToShow = addedFavoriteProductsFromDB.slice(0, 4);
-  const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
-  const dispatch = useAppDispatch();
+  // const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
+  // const dispatch = useAppDispatch();
 
   return (
     <Link to="lists/liked" className="wardrobe_list-favorite px-2 mt-2 cursor-pointer">

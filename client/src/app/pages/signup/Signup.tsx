@@ -1,5 +1,5 @@
-import React, { Fragment, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { Fragment } from "react";
+import { useNavigate } from "react-router-dom";
 import { User_signup } from "../../../interfaces/authentication";
 import { requestSignup } from "../../../services/auth-slice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
@@ -22,7 +22,7 @@ export const Signup = () => {
   const [checkbox, setCheckbox] = React.useState<any>({
     interest: [],
   });
-  const location = useLocation();
+  // const location = useLocation();
   const [input, setInput] = React.useState<User_signup>({
     firstName: "",
     lastName: "",

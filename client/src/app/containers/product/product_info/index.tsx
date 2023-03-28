@@ -9,7 +9,7 @@ import PRODUCT_INFO_BASICINFO from "./Product_info_basicInfo";
 import PRODUCT_INFO_DETAILEDINFO from "./Product_info_detailedInfo";
 import PRODUCT_INFO_RATE from "./Product_info_rate";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
-import _ from "lodash";
+// import _ from "lodash";
 import { toast } from "react-toastify";
 import { productActions } from "../../../../stores/product-slice";
 import { Products } from "../../../../interfaces/Products";
@@ -21,7 +21,7 @@ interface Iprops {
   selectedProduct: ProductDetail;
 }
 
-let isFirst = true;
+// let isFirst = true;
 const Product_info = ({ selectedProduct }: Iprops) => {
   const [nameDropdown, setNameDropdown] = useState<Record<string, any>>({
     selectSize: "",
@@ -35,9 +35,9 @@ const Product_info = ({ selectedProduct }: Iprops) => {
   // const
   const loading__add = useAppSelector((state) => state.UISlice.loading__add);
   const bg_color_shopping_cart = useAppSelector((state) => state.UISlice.bg_color_shopping_cart);
-  const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
-  const addedShoppingCart = useAppSelector((state) => state.cartSlice.addedShoppingCart);
-  const addedLikedProduct = useAppSelector((state) => state.cartSlice.addedFavorite);
+  // const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
+  // const addedShoppingCart = useAppSelector((state) => state.cartSlice.addedShoppingCart);
+  // const addedLikedProduct = useAppSelector((state) => state.cartSlice.addedFavorite);
   const allProducts: Products[] = useAppSelector((state) => state.productSlice.allProducts) || [];
   const getSelectedId = JSON.parse(localStorage.getItem("selectedId")!) || [];
 

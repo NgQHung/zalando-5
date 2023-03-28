@@ -123,9 +123,8 @@ export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: 
     },
     withCredentials: true,
   });
-  let response;
   try {
-    response = await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/shopping-cart`, { data: data });
+    await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/shopping-cart`, { data: data });
   } catch (error: any) {
     toast.error(error.response?.data.message);
   }
@@ -194,9 +193,8 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
     withCredentials: true,
   });
 
-  let response;
   try {
-    response = await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/address-delivery`, { data: data });
+    await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/address-delivery`, { data: data });
   } catch (error: any) {
     toast.error(error.response?.data.message);
   }
@@ -236,9 +234,8 @@ export const postPurchasedProducts = async (
     withCredentials: true,
   });
 
-  let response;
   try {
-    response = await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/purchased-products/post`, data);
+    await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/purchased-products/post`, data);
   } catch (error: any) {
     toast.error(error.response?.data.message);
   }

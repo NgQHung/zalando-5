@@ -14,6 +14,7 @@ import ready from "../../../utils/intersectionObserver";
 import Loading from "../../components/UI/loader/Loading";
 import { cartActions } from "../../../stores/cart-slice";
 import { postLikedProductById } from "../../../services/apiRequest";
+let isFirst = true;
 
 export const ListProducts = () => {
   const allProducts = useAppSelector((state) => state.productSlice.allProducts);
@@ -42,7 +43,6 @@ export const ListProducts = () => {
     }
   };
 
-  let isFirst = true;
   React.useEffect(() => {
     if (isFirst) {
       isFirst = false;

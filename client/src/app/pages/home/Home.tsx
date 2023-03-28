@@ -19,7 +19,7 @@ export const Home = () => {
   const [selectedProduct, setSelectedProduct] = React.useState<any>();
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   // liked products from db
-  const likedProductsId = useAppSelector((state) => state.cartSlice.likedProductsId);
+  // const likedProductsId = useAppSelector((state) => state.cartSlice.likedProductsId);
   const addedFavorite = useAppSelector((state) => state.cartSlice.addedFavorite);
 
   const loadingPage = useAppSelector((state) => state.UISlice.loading_page);

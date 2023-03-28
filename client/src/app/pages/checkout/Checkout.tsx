@@ -11,7 +11,7 @@ import { getAddressDeliveryById } from "../../../services/apiRequest";
 const Checkout = () => {
   const [addressIsClicked, setAdressIsClicked] = useState(false);
   const addressDelivery = useAppSelector((state) => state.checkoutSlice.addressDelivery);
-  const isUpdateAddressDelivery = useAppSelector((state) => state.checkoutSlice.updateAddressDelivery);
+  // const isUpdateAddressDelivery = useAppSelector((state) => state.checkoutSlice.updateAddressDelivery);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   const goToCheckoutState = useAppSelector((state) => state.UISlice.goToCheckout);
   const selectedTypeDelivery = useAppSelector((state) => state.UISlice.selectedTypeDelivery);

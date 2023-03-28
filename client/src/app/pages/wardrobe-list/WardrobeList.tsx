@@ -1,11 +1,11 @@
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fade } from "@mui/material";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ProductDetail } from "../../../interfaces/ProductDetail";
 import { Products } from "../../../interfaces/Products";
-import { getDetailProduct, postLikedProductById } from "../../../services/apiRequest";
+import { postLikedProductById } from "../../../services/apiRequest";
 import { cartActions } from "../../../stores/cart-slice";
 import { productActions } from "../../../stores/product-slice";
 import Wrapper from "../../components/UI/wrapper/wrapper";

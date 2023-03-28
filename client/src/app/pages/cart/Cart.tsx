@@ -18,7 +18,7 @@ const Cart = () => {
   const total = useAppSelector((state) => state.cartSlice.total);
   const [dropdown, setDropdown] = useState(false);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
-  const methodPayment = useAppSelector((state) => state.checkoutSlice.methodPayment);
+  // const methodPayment = useAppSelector((state) => state.checkoutSlice.methodPayment);
 
   const freeShipping = total > 100;
   const dispatch = useDispatch();

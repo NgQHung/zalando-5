@@ -8,12 +8,12 @@ import { TransitionGroup } from "react-transition-group";
 import Collapse from "@mui/material/Collapse";
 import "./navtools.css";
 import { Box, ListItem, ListItemText } from "@mui/material";
-import { amountRemovedHandler, UIActions } from "../../../../../../stores/UI-slice";
+import { amountRemovedHandler } from "../../../../../../stores/UI-slice";
 import { ShoppingProducts } from "../../../../../../interfaces/ShoppingProducts";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { postLikedProductById, postShoppingCartById } from "../../../../../../services/apiRequest";
-import { useFirstRender } from "../../../../../../utils/useFirstRender";
-import { refreshPage } from "../../../../../../utils/refreshPage";
+// import { useFirstRender } from "../../../../../../utils/useFirstRender";
+// import { refreshPage } from "../../../../../../utils/refreshPage";
 
 let isFirst = true;
 

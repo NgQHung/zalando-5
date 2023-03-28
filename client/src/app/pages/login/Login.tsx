@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { User_login } from "../../../interfaces/authentication";
 import { requestLogin } from "../../../services/auth-slice";
@@ -36,13 +36,13 @@ export const Login = () => {
   const refInput = React.useRef<any>(null);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   const allProducts = useAppSelector((state) => state.productSlice.allProducts);
-  const inputTabKey = useAppSelector((state) => state.UISlice.nextInput);
+  // const inputTabKey = useAppSelector((state) => state.UISlice.nextInput);
   const passwordHasError = !passwordIsValid(input.password);
   const emailInputHasError = !emailInputIsValid(input.email);
-  const typeAnimation: string = useAppSelector((state) => state.UISlice.animationLoginSignup);
+  // const typeAnimation: string = useAppSelector((state) => state.UISlice.animationLoginSignup);
   const animationLoginSignupFirstTime = useAppSelector((state) => state.UISlice.animationLoginSignupFirstTime);
   const emptyEmailInputError = input?.email === "" && isSubmitted;
-  const emptyPasswordInputError = input?.password === "" && isSubmitted;
+  // const emptyPasswordInputError = input?.password === "" && isSubmitted;
 
   const handleClickShowPassword = () => {
     setInput({ ...input, showPassword: !input.showPassword });
@@ -101,10 +101,10 @@ export const Login = () => {
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // if (passwordHasError || emailInputHasError) {
-    //   setIsSubmitted(true);
-    //   return;
-    // }
+    if (passwordHasError || emailInputHasError) {
+      setIsSubmitted(true);
+      return;
+    }
 
     requestLogin(dispatch, input, navigate, accessToken!);
   };
@@ -179,7 +179,7 @@ export const Login = () => {
               duration: 1,
             },
           }}
-          className="sm:max-w-[75%] sm:basis-3/4 md:max-w-[50%] md:basis-1/2 lg:max-w-[41.6%] lg:basis-[41.6%] xl:max-w-[33.33333%] px-6 xl:basis-1/3 mx-auto my-0 bg-[#ffff] "
+          className="sm:max-w-[75%] sm:basis-3/4 md:max-w-[50%] md:basis-1/2 lg:max-w-[41.6%] lg:basis-[41.6%] xl:max-w-[33.33333%] px-6 xl:basis-1/3 mx-auto my-0 bg-[#ffff] pb-[30px] "
         >
           <p className="font-[700] text-[20px] leading-[28px] mb-6">Jsem tu poprvé</p>
           <LOGIN_REGISTER />
