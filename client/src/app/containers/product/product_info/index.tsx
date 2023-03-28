@@ -59,7 +59,6 @@ const Product_info = ({ selectedProduct }: Iprops) => {
 
   const addShoppingCartHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.stopPropagation();
-    // console.log(selectedProduct);
     const productIndex1: number = allProducts.findIndex((item: Products) => item.id === selectedProduct?.id);
     const product: Products = allProducts[productIndex1];
 
@@ -113,7 +112,6 @@ const Product_info = ({ selectedProduct }: Iprops) => {
 
   const addProductFavoriteHandler = () => {
     const productIndex = allProducts.findIndex((item: Products) => item.id === getSelectedId);
-    // console.log(selectedId);
     const product = allProducts[productIndex];
     let update;
     if (product) {

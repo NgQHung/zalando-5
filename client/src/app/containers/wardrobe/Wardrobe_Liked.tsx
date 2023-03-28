@@ -12,8 +12,6 @@ const WARDROBE_LIKED = () => {
   const addedFavoriteProducts = useAppSelector((state) => state.cartSlice.addedFavorite);
   // const addedFavoriteProductsFromDB = useAppSelector((state) => state.cartSlice.likedProductsId);
   const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
-  // console.log("addedFavoriteProductsFromDB:", addedFavoriteProductsFromDB);
-  // console.log("addedFavoriteProducts:", addedFavoriteProducts);
 
   const addedFavoriteLength =
     addedFavoriteProducts?.length !== 0 ? addedFavoriteProducts.length : addedFavoriteProductsFromDB.length;

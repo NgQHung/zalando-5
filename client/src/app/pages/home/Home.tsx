@@ -43,7 +43,6 @@ export const Home = () => {
       update = [...products_1];
       update[productIndex] = updateProduct;
       dispatch(productActions.productsHandler({ products_1: update }));
-      // console.log("update", update);
     }
   };
 

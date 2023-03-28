@@ -44,8 +44,6 @@ export const Login = () => {
   const emptyEmailInputError = input?.email === "" && isSubmitted;
   const emptyPasswordInputError = input?.password === "" && isSubmitted;
 
-  // console.log(typeAnimation);
-
   const handleClickShowPassword = () => {
     setInput({ ...input, showPassword: !input.showPassword });
   };
@@ -126,12 +124,6 @@ export const Login = () => {
       subscribe = false;
     };
   }, [user]);
-
-  // useEffect(() => {
-  //   getPurchasedProducts(dispatch, user);
-  // }, []);
-
-  // console.log(typeAnimationLogin);
 
   return (
     <Fragment>

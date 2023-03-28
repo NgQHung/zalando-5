@@ -27,10 +27,8 @@ export const requestLogin = (
   // nameProduct: string
 ) => {
   try {
-    // console.log("hi");
     dispatch(UIActions.loadingPage(true));
     setTimeout(async () => {
-      // console.log("login");
       const response = await authAxios
         .post(`/v1/auth/login`, user)
         .then((data) => {

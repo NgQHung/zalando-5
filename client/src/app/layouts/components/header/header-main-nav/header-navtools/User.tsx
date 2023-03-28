@@ -13,7 +13,6 @@ const User = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const animationLoginSignupHandler = (typeAnimation: string) => {
-    // console.log('render')
     dispatch(UIActions.animationLoginSignup(typeAnimation));
     dispatch(UIActions.animationLoginSignupFirstTime(true));
     navigate(`/${typeAnimation}`);

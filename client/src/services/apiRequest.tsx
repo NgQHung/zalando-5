@@ -38,7 +38,6 @@ export const getProducts = async (
   likedProductsFromDB: ILikedProductsId[]
 ) => {
   let response;
-  console.log("getproduct");
   try {
     dispatch(UIActions.loadingPage(true));
     setTimeout(async () => {
@@ -94,7 +93,6 @@ export const getProducts = async (
 // get detail selected product
 export const getDetailProduct = async (dispatch: Dispatch, id: number | null, user: User) => {
   let response;
-  console.log("getdetail");
   let getSelectedId: number;
   if (AfterRefresh()) {
     getSelectedId = JSON.parse(localStorage.getItem("selectedId")!) || [];
@@ -205,7 +203,6 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
 };
 
 export const getAddressDeliveryById = async (dispatch: Dispatch, user: any) => {
-  console.log("get address delivery");
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {

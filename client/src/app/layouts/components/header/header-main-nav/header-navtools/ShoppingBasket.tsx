@@ -79,7 +79,6 @@ const ShoppingBasket = () => {
     }
   }, [lengthAddedShoppingCart]);
 
-  // console.log(addedShoppingCart.length);
   React.useEffect(() => {
     let subscribe = true;
     if (isFirst) {
@@ -88,7 +87,6 @@ const ShoppingBasket = () => {
     }
     if (subscribe && user && !(localStorage.getItem("persist:root") === "")) {
       postShoppingCartById(dispatch, user, addedShoppingCart);
-      // console.log("from ShoppingBasket");
     }
     if (addedLikedProduct.length > 0) {
       postLikedProductById(dispatch, user, addedLikedProduct);

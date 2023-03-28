@@ -21,7 +21,6 @@ const Confirm = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   const purchasedProducts = useAppSelector((state) => state.checkoutSlice.purchasedProducts);
-  // console.log("purchased products: ", { purchasedProducts, methodPayment: methodPayment });
   const [nameEdit, setNameEdit] = useState<string>("");
 
   const navigate = useNavigate();

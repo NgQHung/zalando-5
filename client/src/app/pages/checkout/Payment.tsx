@@ -34,8 +34,6 @@ const Payment = () => {
   const theLastOnDelivery = theLastPurchasedMethodPayment === "OnDelivery";
   const allPurchasedProducts = useAppSelector((state) => state.checkoutSlice.allPurchasedProducts);
 
-  // console.log("methodPayment: ", methodPayment);
-
   useEffect(() => {
     if (allPurchasedProducts) {
       const theLastIndexPurchase = allPurchasedProducts.length - 1;
@@ -70,8 +68,6 @@ const Payment = () => {
   useEffect(() => {
     getPurchasedProducts(dispatch, user);
   }, []);
-
-  // console.log("method.type: ", method.type)
 
   return (
     <Wrapper className="">

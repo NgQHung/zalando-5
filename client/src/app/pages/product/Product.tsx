@@ -23,7 +23,6 @@ const Product = () => {
 
   const isImage = selectedProduct?.media?.images!;
   const firstImage = isImage && selectedProduct?.media?.images[0].url!;
-  console.log(selectedProduct);
 
   const dispatch = useAppDispatch();
   const [imageShow, setImageShow] = React.useState<string>("");

@@ -30,9 +30,7 @@ const productSlice = createSlice({
   reducers: {
     productsHandler(state, action) {
       state.allProducts = action.payload.allProducts;
-      // console.log(state.allProducts);
       state.products_1 = action.payload.products_1;
-      // console.log("store: ", state.products_1[0], state.products_1[1], state.products_1[2]);
       state.products_2 = action.payload.products_2;
     },
     selectedProductHandler(state, action) {

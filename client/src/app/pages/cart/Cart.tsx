@@ -15,13 +15,9 @@ import "./Cart.css";
 
 const Cart = () => {
   const addedShoppingCart = useAppSelector((state) => state.cartSlice.addedShoppingCart);
-  // console.log(addedShoppingCart);
-  // console.log("hello");
   const total = useAppSelector((state) => state.cartSlice.total);
-  // const [goToCheckout, setGoToCheckout] = useState<boolean>(false)
   const [dropdown, setDropdown] = useState(false);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
-  // console.log(user);
   const methodPayment = useAppSelector((state) => state.checkoutSlice.methodPayment);
 
   const freeShipping = total > 100;

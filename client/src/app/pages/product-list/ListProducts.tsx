@@ -50,8 +50,6 @@ export const ListProducts = () => {
     if (!user) {
       return;
     }
-    // console.log("hel;lo");
-    console.log("addedFavorite:", addedFavorite);
     postLikedProductById(dispatch, user, addedFavorite);
   }, [addedFavorite.length]);
 

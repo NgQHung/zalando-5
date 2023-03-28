@@ -71,7 +71,6 @@ const UISLice = createSlice({
     },
     inputTabKey(state, action) {
       state.nextInput = action.payload;
-      // console.log(state.nextInput);
     },
     animationLoginSignup(state, action) {
       state.animationLoginSignup = action.payload;

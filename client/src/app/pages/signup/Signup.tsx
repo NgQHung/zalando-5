@@ -59,7 +59,6 @@ export const Signup = () => {
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log({ ...input, interest: checkbox?.interest });
     requestSignup(dispatch, { ...input, interest: checkbox?.interest }, navigate);
   };
 

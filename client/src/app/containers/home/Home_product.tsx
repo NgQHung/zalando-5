@@ -16,7 +16,6 @@ const HOME_PRODUCT = ({ products, selectedProductHandler, favoriteHandler }: IPr
   const likedProduct = useAppSelector((state) => state.cartSlice.addedFavorite);
   const addedFavorite = useAppSelector((state) => state.cartSlice.addedFavorite);
   const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
-  // console.log(likedProduct);
   return (
     <WrapperRowFull className="h-[584px] bg-[#34d27b] ">
       <>

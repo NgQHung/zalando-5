@@ -5,7 +5,6 @@ export const BeforeRefresh = () => {
   const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     window.onbeforeunload = function () {
-      //   console.log("page is refreshed");
       setRefresh(true);
       return true;
     };
