@@ -9,13 +9,14 @@ import { userActions } from "../stores/user-slice";
 import { refreshPage } from "../utils/refreshPage";
 import { authenticationActions } from "../stores/authentication-slice";
 const uriBase = {
-  server: "http://localhost:8080",
+  // server: "http://localhost:8080",
+  server: "https://zalando-be.onrender.com",
 };
 
-const uriHeroku = {
-  // server: "https://zalando-be.herokuapp.com",
-  server: "http://localhost:8080",
-};
+// const uriBase = {
+//   // server: "https://zalando-be.herokuapp.com",
+//   server: "http://localhost:8080",
+// };
 
 // request login
 export const requestLogin = (
@@ -80,7 +81,7 @@ export const requestSignup = (dispatch: Dispatch, user: User_signup, navigate: N
 // request log out
 export const requestLogout = (dispatch: Dispatch, navigate: NavigateFunction, accessToken: string) => {
   const authAxios = axios.create({
-    baseURL: uriHeroku.server,
+    baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
