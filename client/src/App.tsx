@@ -4,12 +4,12 @@ import DefaultLayout from "./app/layouts/DefaultLayout";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { privateRoutes, publicRoutes } from "./app/routes";
 import { cartActions } from "./stores/cart-slice";
-import { getDetailProduct, getLikedProductById, getProducts } from "./services/apiRequest";
+import { getLikedProductById, getProducts } from "./services/apiRequest";
 import { UIActions } from "./stores/UI-slice";
 import "react-toastify/dist/ReactToastify.css";
 
 import { ToastContainer } from "react-toastify";
-let isFirst = true;
+// let isFirst = true;
 
 function App() {
   const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ function App() {
   const addedFavoriteProducts = useAppSelector((state) => state.cartSlice.addedFavorite);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   const likedProductsFromDB = useAppSelector((state) => state.cartSlice.likedProductsId);
-  const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
+  // const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
 
   useEffect(() => {
     try {
@@ -87,7 +87,7 @@ function App() {
 
           const PageComponent = route.component;
 
-          const loginPath = "/login";
+          // const loginPath = "/login";
 
           return (
             <Route
