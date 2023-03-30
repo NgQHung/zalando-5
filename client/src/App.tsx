@@ -60,18 +60,18 @@ function App() {
 
           const PageComponent = route.component;
 
-          const homePath = "/home-page";
+          // const homePath = "/home-page";
           return (
             <Route
               key={idx}
               element={
-                route.redirect ? (
-                  <Navigate to={homePath} />
-                ) : (
-                  <Layout>
-                    <PageComponent />
-                  </Layout>
-                )
+                // route.redirect ? (
+                //   <Navigate to={homePath} />
+                // ) : (
+                <Layout>
+                  <PageComponent />
+                </Layout>
+                // )
               }
               path={route.path}
             />

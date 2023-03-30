@@ -33,7 +33,7 @@ const SIGNUP_HEADER_MOBILE = () => {
         {/* </div> */}
       </div>
       <div className="login_header_logo max-w-[1216px] mx-auto my-0 text-left px-6 pt-4 pb-6 flex items-start">
-        <Link to="/home-page">
+        <Link to="/">
           <img className="h-[25px] object-cover leading-[25px]" src="Logo.png" alt="logo" />
         </Link>
       </div>

@@ -9,7 +9,7 @@ export const FormLayout = ({ children }: Iprops) => {
   return (
     <div>
       <section className="login_section tex-center mx-auto my-0 pb-12 relative ">
-        <Link to="/home-page">
+        <Link to="/">
           <div className="login_header_logo max-w-[1216px] mx-auto my-0 text-left px-6 pt-4 pb-6 cursor-pointer">
             <img
               className="h-[25px] object-cover leading-[25px]"

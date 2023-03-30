@@ -32,7 +32,7 @@ const HEADER_MAIN_NAV = ({
     <div className="pt-[8px] h-[60px] flex items-center w-full ">
       {/* gender select start */}
       <ul className="hidden space-x-[8px] basis-1/3 max-w-1/3 text-[16px] font-[700] lg:flex  ">
-        <Link to="/home-page">
+        <Link to="/">
           <li
             onClick={() => activeHandler("zeny")}
             className={"header_gender " + (gender === "zeny" ? "active_gender" : "")}
