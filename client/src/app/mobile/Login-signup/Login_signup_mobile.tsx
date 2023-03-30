@@ -22,6 +22,7 @@ const Login_signup_mobile = () => {
     lastName: "",
     email: "",
     password: "",
+    showPassword: false,
   });
 
   const onClickHandler = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {

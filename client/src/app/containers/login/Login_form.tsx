@@ -1,13 +1,13 @@
 import { faEnvelope, faEye, faEyeSlash, faLock, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { memo, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { memo, useRef } from "react";
+// import { Link } from "react-router-dom";
 import ButtonPrimary from "../../components/UI/button/Button";
 import { User_login } from "../../../interfaces/authentication";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { DetectTabKey } from "../../../utils/detectTabKey";
-import { UIActions } from "../../../stores/UI-slice";
-import SIGNUP_LOGIN from "../signup/Signup_Login";
+import { useAppSelector } from "../../hooks";
+// import { DetectTabKey } from "../../../utils/detectTabKey";
+// import { UIActions } from "../../../stores/UI-slice";
+// import SIGNUP_LOGIN from "../signup/Signup_Login";
 
 interface IProps {
   onSubmitHandler?: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -73,8 +73,6 @@ IProps) => {
   return (
     <section className="login_section text-center mx-auto my-0 pb-12 ">
       <div className="login_content sm:max-w-[75%] sm:basis-3/4 md:max-w-[50%] md:basis-1/2 lg:max-w-[41.6%] lg:basis-[41.6%] xl:max-w-[33.33333%] px-6 xl:basis-1/3 mx-auto my-0">
-        {/* <p className="font-[700] text-[28px] ">Vítejte zpět</p> */}
-
         {loginFail ? (
           <div className="bg-[#efeff0] p-4 flex flex-row ">
             <div className="h-5 w-5 rounded-xl bg-[#eb0037] flex justify-center items-center shrink-0 mr-2">

@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {
   loginFail: string;
+  signupFail: string;
 }
 
 const initialState: InitialState = {
   loginFail: "",
+  signupFail: "",
 };
 
 const authenticationSlice = createSlice({
@@ -14,6 +16,9 @@ const authenticationSlice = createSlice({
   reducers: {
     loginFail(state, action) {
       state.loginFail = action.payload;
+    },
+    signupFail(state, action) {
+      state.signupFail = action.payload;
     },
   },
 });

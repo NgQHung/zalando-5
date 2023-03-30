@@ -6,7 +6,7 @@ import { checkoutActions } from "../../../stores/checkout-slice";
 import { useAppDispatch } from "../../hooks";
 
 interface IProps {
-  addressDelivery: AddressDelivery;
+  addressDelivery: AddressDelivery | null;
   setAdressIsClicked: (state: boolean) => void;
 }
 
@@ -21,10 +21,10 @@ const CheckoutAddressExisting = ({ addressDelivery, setAdressIsClicked }: IProps
         </div>
         <div className="pl-9">
           <p>
-            {addressDelivery.firstName} {addressDelivery.lastName}
+            {addressDelivery?.firstName} {addressDelivery?.lastName}
           </p>
-          <p>{addressDelivery.address}</p>
-          <p>{addressDelivery.city}</p>
+          <p>{addressDelivery?.address}</p>
+          <p>{addressDelivery?.city}</p>
           <p>Ceska Republika</p>
         </div>
         <FontAwesomeIcon

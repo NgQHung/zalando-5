@@ -240,11 +240,11 @@ input[type="radio"]:checked:after {
   height: 40px;
 }
 
-input[type="checkbox"] {
+/* input[type="checkbox"] {
   height: 0;
   width: 0;
   visibility: hidden;
-}
+} */
 
 .switch-text {
   cursor: pointer;

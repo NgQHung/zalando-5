@@ -10,4 +10,5 @@ export interface User_signup {
   email: string;
   password: string;
   interest?: string[];
+  showPassword: boolean;
 }

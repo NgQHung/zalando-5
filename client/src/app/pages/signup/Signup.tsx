@@ -12,12 +12,15 @@ import { motion } from "framer-motion";
 import LOGIN_FORM from "../../containers/login/Login_form";
 import LOGIN_REGISTER from "../../containers/login/Login_Register";
 
+const emailIsValid = (value: string) => value.includes("@") && value.includes(".");
+const passwordIsValid = (value: any) => value.length > 7;
+
 export const Signup = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [typeInput, setTypeInput] = React.useState("");
   const [isClick, setIsClick] = React.useState(false);
-  const animationLoginSignupFirstTime = useAppSelector((state) => state.UISlice.animationLoginSignupFirstTime);
+  const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false);
 
   const [checkbox, setCheckbox] = React.useState<any>({
     interest: [],
@@ -28,7 +31,17 @@ export const Signup = () => {
     lastName: "",
     email: "",
     password: "",
+    showPassword: false,
   });
+  const animationLoginSignupFirstTime = useAppSelector((state) => state.UISlice.animationLoginSignupFirstTime);
+
+  const handleClickShowPassword = () => {
+    setInput({ ...input, showPassword: !input.showPassword });
+  };
+
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+  };
 
   const onClickHandler = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     setIsClick(true);
@@ -59,6 +72,16 @@ export const Signup = () => {
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // console.log(emailIsValid(input.email));
+    if (
+      input.firstName === "" ||
+      input.lastName === "" ||
+      !emailIsValid(input.email) ||
+      !passwordIsValid(input.password)
+    ) {
+      setIsSubmitted(true);
+      return;
+    }
     requestSignup(dispatch, { ...input, interest: checkbox?.interest }, navigate);
   };
 
@@ -133,6 +156,14 @@ export const Signup = () => {
           onClickHandler={onClickHandler}
           onChangeHandler={onChangeHandler}
           onChangeCheckboxHandler={onChangeCheckboxHandler}
+          input={input}
+          handleClickShowPassword={handleClickShowPassword}
+          handleMouseDownPassword={handleMouseDownPassword}
+          passwordHasError={!passwordIsValid(input.password)}
+          emailHasError={!emailIsValid(input.email)}
+          firstNameHasError={input.firstName === ""}
+          lastNameHasError={input.lastName === ""}
+          isSubmitted={isSubmitted}
         />
       </motion.div>
       <motion.div

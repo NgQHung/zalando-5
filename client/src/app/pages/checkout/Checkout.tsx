@@ -8,6 +8,10 @@ import CheckoutAddressReview from "../../containers/checkout/checkout-address-re
 import { refreshPage } from "../../../utils/refreshPage";
 import { getAddressDeliveryById } from "../../../services/apiRequest";
 
+const objIsEmptyOrNull = (obj: {} | null) => {
+  return Object.keys(!obj).length === 0 || obj === null;
+};
+
 const Checkout = () => {
   const [addressIsClicked, setAdressIsClicked] = useState(false);
   const addressDelivery = useAppSelector((state) => state.checkoutSlice.addressDelivery);
@@ -22,7 +26,18 @@ const Checkout = () => {
 
   useEffect(() => {
     getAddressDeliveryById(dispatch, user);
-    if (addressDelivery && goToCheckoutState) {
+    console.log("addressDelivery: ", addressDelivery);
+    console.log("goToCheckoutState: ", goToCheckoutState);
+    // if (addressDelivery !== null) {
+    //   if (Object.keys(addressDelivery).length === 0) {
+    //     return;
+    //   }
+    //   return;
+    // }
+    if (objIsEmptyOrNull(addressDelivery)) {
+      return;
+    }
+    if (goToCheckoutState) {
       navigate("/checkout/confirm");
     }
   }, [refreshPage]);
@@ -40,7 +55,7 @@ const Checkout = () => {
               (selectedTypeDelivery === "myAddress" || openAddressForm ? "deliveryDropdown-show" : "")
             }
           >
-            {addressDelivery && !openAddressForm && selectedTypeDelivery === "myAddress" ? (
+            {!objIsEmptyOrNull(addressDelivery) && !openAddressForm && selectedTypeDelivery === "myAddress" ? (
               <CheckoutAddressExisting addressDelivery={addressDelivery} setAdressIsClicked={setAdressIsClicked} />
             ) : (
               <CheckoutAddressForm setAdressIsClicked={setAdressIsClicked} />
