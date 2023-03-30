@@ -40,7 +40,7 @@ const User = () => {
                 <span>Přihlásit se</span>
               </button>
               {/* </Link> */}
-              <div className="relative w-full leading-[24px] tracking-[-0.16px] font-[700] text-ellipsis hover:opacity-80 transition-all text-[#ffff] cursor-pointer text-[14px] text-[#1a1a1a] ml-[16px] whitespace-normal text-left">
+              <div className="relative w-full leading-[24px] tracking-[-0.16px] font-[700] text-ellipsis hover:opacity-80 transition-all cursor-pointer text-[14px] text-[#1a1a1a] ml-[16px] whitespace-normal text-left">
                 <button
                   onClick={() => animationLoginSignupHandler("signup")}
                   className="text-[#6328e0] affect_text mb-1 "
