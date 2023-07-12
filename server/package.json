@@ -9,6 +9,9 @@
     "dev": "ts-node-dev --files server.ts",
     "build": "tsc"
   },
+  "engines": {
+    "node": "17.4.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -33,7 +36,7 @@
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "mongoose": "^6.6.2",
-    "node": "^19.8.1",
+    "node": "17.4.0",
     "node-cache": "^5.1.2",
     "nodemon": "^2.0.20",
     "redux-persist": "^6.0.0",
