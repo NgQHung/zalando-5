@@ -22,10 +22,6 @@ app.use('/dist', express.static(path.resolve(__dirname, '../client/dist')));
 //   res.download(path.resolve(__dirname, '../client/public/index.html'));
 // });
 app.use('/', express.static(path.join(__dirname, '../client/public/index.html')));
-// const corsConfig = {
-//   credentials: true,
-//   origin: true,
-// };
 
 const corsOptions = {
   origin: process.env.CLIENT_URI,
@@ -33,6 +29,10 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
+
+app.options('/*', (_, res) => {
+  res.sendStatus(200);
+});
 app.use(cookieParser());
 app.use(helmet());
 
