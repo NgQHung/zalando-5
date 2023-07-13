@@ -10,6 +10,7 @@ import { checkoutActions } from "../stores/checkout-slice";
 import { productActions } from "../stores/product-slice";
 import { UIActions } from "../stores/UI-slice";
 import { AfterRefresh } from "../utils/pageIsRefreshed";
+import { uriBase } from "../utils/authentication/axiosAuth";
 
 export interface User {
   accessToken: string;
@@ -18,18 +19,6 @@ export interface User {
   firstName: string;
   _id: string;
 }
-
-const uriBase = {
-  // server: "http://localhost:8080",
-  // server: "http://ec2-16-171-38-72.eu-north-1.compute.amazonaws.com:8080",
-  // server: "https://zalando-be.onrender.com",
-  server: "https://zalando-5-ak08loaf6-ngqhung.vercel.app",
-};
-
-// const uriBase = {
-//   // server: "https://zalando-be.herokuapp.com",
-//   server: "http://localhost:8080",
-// };
 
 // get all products
 export const getProducts = async (

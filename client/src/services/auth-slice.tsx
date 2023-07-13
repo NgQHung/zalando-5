@@ -3,21 +3,10 @@ import { NavigateFunction } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Dispatch } from "redux";
 import { User_signup } from "../interfaces/authentication";
-import { authAxios } from "../utils/authentication/axiosAuth";
+import { authAxios, uriBase } from "../utils/authentication/axiosAuth";
 import { UIActions } from "../stores/UI-slice";
 import { userActions } from "../stores/user-slice";
-// import { refreshPage } from "../utils/refreshPage";
 import { authenticationActions } from "../stores/authentication-slice";
-const uriBase = {
-  // server: "http://localhost:8080",
-  // server: "https://zalando-be.onrender.com",
-  server: "https://zalando-5-ak08loaf6-ngqhung.vercel.app",
-};
-
-// const uriBase = {
-//   // server: "https://zalando-be.herokuapp.com",
-//   server: "http://localhost:8080",
-// };
 
 // request login
 export const requestLogin = (
