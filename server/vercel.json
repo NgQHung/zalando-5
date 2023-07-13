@@ -11,6 +11,10 @@
       "src": "/(.*)",
       "dest": "/server.ts",
       "methods": ["POST", "GET"]
+    },
+    {
+      "src": "/routes",
+      "dest": "/index.ts"
     }
   ]
 }
