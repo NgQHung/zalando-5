@@ -10,7 +10,8 @@ import { userActions } from "../stores/user-slice";
 import { authenticationActions } from "../stores/authentication-slice";
 const uriBase = {
   // server: "http://localhost:8080",
-  server: "https://zalando-be.onrender.com",
+  // server: "https://zalando-be.onrender.com",
+  server: "https://zalando-5-ak08loaf6-ngqhung.vercel.app",
 };
 
 // const uriBase = {
