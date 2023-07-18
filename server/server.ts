@@ -35,13 +35,13 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.options('/*', (_: any, res: Response) => {
+app.options('/*', (_, res: Response) => {
   res.sendStatus(200);
 });
 app.use(cookieParser());
 app.use(helmet());
 
-app.use(function (_req: any, res: Response, next: NextFunction) {
+app.use(function (_req, res: Response, next: NextFunction) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', '*');
@@ -80,16 +80,16 @@ mongoose
     // cors_proxy.createServer({
     //   originWhitelist: [], // Allow all origins
     // });
-    app.listen(PORT, host, () => console.log('listening on port ', PORT));
-    // cors_proxy
-    //   .createServer({
-    //     originWhitelist: [], // Allow all origins
-    //     requireHeader: ['origin', 'x-requested-with'],
-    //     removeHeaders: ['cookie', 'cookie2'],
-    //   })
-    //   .listen(PORT, host, function () {
-    //     console.log('Running CORS Anywhere on ' + host + ':' + PORT);
-    //   });
+    // app.listen(PORT, host, () => console.log('listening on port ', PORT));
+    cors_proxy
+      .createServer({
+        originWhitelist: [], // Allow all origins
+        requireHeader: ['origin', 'x-requested-with'],
+        removeHeaders: ['cookie', 'cookie2'],
+      })
+      .listen(PORT, host, function () {
+        console.log('Running CORS Anywhere on ' + host + ':' + PORT);
+      });
   })
   .catch((error) => {
     console.log(error);
