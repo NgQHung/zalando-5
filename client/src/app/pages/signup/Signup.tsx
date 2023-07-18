@@ -82,6 +82,7 @@ export const Signup = () => {
       setIsSubmitted(true);
       return;
     }
+
     requestSignup(dispatch, { ...input, interest: checkbox?.interest }, navigate);
   };
 
