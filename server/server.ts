@@ -37,19 +37,24 @@ app.use(cookieParser());
 app.use(helmet());
 
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Origin', req.headers.origin);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-  // res.header(
-  //   'Access-Control-Allow-Headers : X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization'
-  // );
-  // res.header(
-  //   'Access-Control-Allow-Headers, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization'
-  // );
-  // res.header('HTTP/1.1 200 OK');
+  // res.header('Access-Control-Allow-Origin', '*');
+  // res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  // res.header('Access-Control-Allow-Credentials', 'true');
+  // res.header('Access-Control-Allow-Origin', req.headers.origin);
+  // res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  // res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+  res.header("Access-Control-Allow-Origin", "*")
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested, Content-Type, Accept Authorization"
+    )
+    if (req.method === "OPTIONS") {
+      res.header(
+        "Access-Control-Allow-Methods",
+        "POST, PUT, PATCH, GET, DELETE"
+      )
+      return res.status(200).json({})
+    }
   next();
 });
 
