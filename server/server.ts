@@ -25,7 +25,7 @@ app.use('/', express.static(path.join(__dirname, '../client/public/index.html'))
 
 const corsOptions = {
   credentials: true,
-  origin: process.env.CLIENT_URI,
+  origin: true,
 };
 
 app.use(cors(corsOptions));
@@ -33,16 +33,16 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(helmet());
 
-// app.use(function (_req, res: Response, next: NextFunction) {
-//   res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI);
-//   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-//   res.header(
-//     'Access-Control-Allow-Headers',
-//     'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
-//   );
-//   res.header('Access-Control-Allow-Credentials', 'true');
-//   next();
-// });
+app.use(function (_req, res: Response, next: NextFunction) {
+  res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI);
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
+  );
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
