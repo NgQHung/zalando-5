@@ -12,8 +12,8 @@ export const uriBase = {
 export const authAxios = axios.create({
   baseURL: uriBase.server,
   headers: {
-    // "Content-Type": "application/x-www-form-urlencoded",
-    "Content-type": "application/json",
+    "Content-Type": "application/x-www-form-urlencoded",
+    // "Content-type": "application/json",
   },
   // withCredentials: true,
 });
