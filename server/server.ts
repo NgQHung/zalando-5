@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8080;
 
 env.config({ path: path.resolve(__dirname, './.env') });
 
-const app = express().use('*', cors());
+const app = express();
 // serve static
 app.use(serveStatic('public/ftp', { index: ['default.html', 'default.htm'] }));
 app.use('/dist', express.static(path.resolve(__dirname, '../client/dist')));
