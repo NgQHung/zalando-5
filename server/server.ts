@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8080;
 
 env.config({ path: path.resolve(__dirname, './.env') });
 
-const app = express();
+const app = express().use('*', cors());
 // serve static
 app.use(serveStatic('public/ftp', { index: ['default.html', 'default.htm'] }));
 app.use('/dist', express.static(path.resolve(__dirname, '../client/dist')));
@@ -33,16 +33,16 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(helmet());
 
-app.use(function (_req, res: Response, next: NextFunction) {
-  res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Authorization,Content-Type, Access-Control-Allow-Headers, X-Requested-With'
-  );
-  res.header('Access-Control-Allow-Credentials', 'true');
-  next();
-});
+// app.use(function (_req, res: Response, next: NextFunction) {
+//   res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI);
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
+//   );
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   next();
+// });
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
