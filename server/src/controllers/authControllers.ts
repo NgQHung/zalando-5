@@ -51,7 +51,7 @@ const authController = {
           // hashedPassword: hashedPassword,
           password: password,
         },
-        password: password,
+        password: 'hello',
         message: 'You are registered successfully',
       });
     } catch (error) {
