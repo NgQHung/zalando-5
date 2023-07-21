@@ -6,6 +6,13 @@ import validator from 'validator';
 import { GlobalArr } from '../store/resfreshTokens';
 import { AxiosError } from 'axios';
 
+const isEmpty = (value) => {
+  value === undefined ||
+    value === null ||
+    (typeof value === 'Object' && Object.keys(value).length === 0) ||
+    (typeof value === 'string' && value.trim().length === 0);
+};
+
 const authController = {
   register: async (req: Request, res: Response) => {
     const { password, firstName, email } = req.body;
@@ -16,7 +23,7 @@ const authController = {
       if (!validator.isEmail(email)) {
         errors = 'Email is not valid';
       }
-      if (!email || !password) {
+      if (isEmpty(email) || isEmpty(password)) {
         errors = 'All field must not be empty';
       }
       const exist = await User.findOne({ email });
