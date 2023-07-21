@@ -32,7 +32,7 @@ const authController = {
       }
 
       // const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      // const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
       // create new user
       const newUser = new User({
@@ -48,7 +48,7 @@ const authController = {
         data: {
           firstName: firstName,
           email: email,
-          hashedPassword: hashedPassword,
+          // hashedPassword: hashedPassword,
           password: password,
         },
         message: 'You are registered successfully',
