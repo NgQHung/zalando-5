@@ -42,8 +42,17 @@ const authController = {
       });
 
       // create an user on Mongoose
-      const user = await newUser.save();
-      return res.status(200).json({ data: user, message: 'You are registered successfully' });
+      // const user = await newUser.save();
+      // return res.status(200).json({ data: user, message: 'You are registered successfully' });
+      return res.status(200).json({
+        data: {
+          firstName: firstName,
+          email: email,
+          hashedPassword: hashedPassword,
+          password: password,
+        },
+        message: 'You are registered successfully',
+      });
     } catch (error) {
       const err = error as AxiosError;
       return res.status(500).json({
