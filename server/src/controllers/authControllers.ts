@@ -31,7 +31,7 @@ const authController = {
         });
       }
       // const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, 10);
+      const hashedPassword = bcrypt.hashSync(password, 10);
 
       // create new user
       const newUser = new User({
