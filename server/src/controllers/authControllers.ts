@@ -31,13 +31,13 @@ const authController = {
         });
       }
       // const salt = await bcrypt.genSalt(10);
-      // const hashedPassword = bcrypt.hashSync(password, 10);
+      const hashedPassword = bcrypt.hashSync(password, 10);
 
       // create new user
       const newUser = new User({
         firstName: firstName,
         email: email,
-        password: password,
+        password: hashedPassword,
       });
 
       // create an user on Mongoose
