@@ -111,7 +111,7 @@ export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: 
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
     },
-    withCredentials: true,
+    // withCredentials: true,
   });
   try {
     await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/shopping-cart`, { data: data });
@@ -125,7 +125,7 @@ export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProd
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
     },
-    withCredentials: true,
+    // withCredentials: true,
   });
   let response;
 
@@ -147,7 +147,7 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
     },
-    withCredentials: true,
+    // withCredentials: true,
   });
 
   try {
@@ -163,7 +163,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
     },
-    withCredentials: true,
+    // withCredentials: true,
   });
   let response;
   try {
@@ -180,7 +180,7 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
     },
-    withCredentials: true,
+    // withCredentials: true,
   });
 
   try {
@@ -196,7 +196,7 @@ export const getAddressDeliveryById = async (dispatch: Dispatch, user: any) => {
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
     },
-    withCredentials: true,
+    // withCredentials: true,
   });
 
   let response;
@@ -221,7 +221,7 @@ export const postPurchasedProducts = async (
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
     },
-    withCredentials: true,
+    // withCredentials: true,
   });
 
   try {
@@ -237,7 +237,7 @@ export const getPurchasedProducts = async (dispatch: Dispatch, user: any) => {
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
     },
-    withCredentials: true,
+    // withCredentials: true,
   });
   let response;
 

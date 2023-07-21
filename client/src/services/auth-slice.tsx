@@ -30,7 +30,7 @@ export const requestLogin = (
           // refreshPage();
         })
         .catch((error) => {
-          dispatch(authenticationActions.loginFail(error.response.data.message));
+          dispatch(authenticationActions.loginFail(error.response.data ? error.response.data.message : ""));
         });
       dispatch(UIActions.loadingPage(false));
     }, 1000);
@@ -81,7 +81,7 @@ export const requestLogout = (dispatch: Dispatch, navigate: NavigateFunction, ac
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
-    withCredentials: true,
+    // withCredentials: true,
   });
   // let response;
   try {
