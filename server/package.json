@@ -10,6 +10,7 @@
     "dev": "ts-node-dev --files server.ts",
     "build": "tsc"
   },
+  "proxy": "http://localhost:3000",
   "keywords": [],
   "author": "",
   "license": "ISC",

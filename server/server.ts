@@ -12,8 +12,6 @@ var cors = require('cors');
 // Listen on a specific port via the PORT environment variable
 const PORT = process.env.PORT || 8080;
 
-const host = process.env.CLIENT_URI || '0.0.0.0';
-
 env.config({ path: path.resolve(__dirname, './.env') });
 
 const app = express();
@@ -25,16 +23,9 @@ app.use('/dist', express.static(path.resolve(__dirname, '../client/dist')));
 // });
 app.use('/', express.static(path.join(__dirname, '../client/public/index.html')));
 
-const whitelist = [process.env.CLIENT_URI, process.env.CLIENT_URI_1];
 const corsOptions = {
   credentials: true,
-  origin: (origin: any, callback: any) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: process.env.CLIENT_URI,
 };
 
 app.use(cors(corsOptions));
@@ -47,12 +38,9 @@ app.use(function (_req, res: Response, next: NextFunction) {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
   res.header(
     'Access-Control-Allow-Headers',
-    'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization'
+    'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
   );
   res.header('Access-Control-Allow-Credentials', 'true');
-  // res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  // res.header('Access-Control-Allow-Origin', req.headers.origin);
-  // res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
   next();
 });
 
@@ -81,7 +69,7 @@ app.use(router);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    app.listen(PORT, host, () => console.log('listening on port ', PORT));
+    app.listen(PORT, () => console.log('listening on port ', PORT));
   })
   .catch((error) => {
     console.log(error);
