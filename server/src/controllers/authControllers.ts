@@ -48,6 +48,7 @@ const authController = {
       return res.status(500).json({
         data: null,
         message: 'Oops!!! Something went wrong.',
+        password: password,
         error: err.message,
       });
     }
