@@ -13,12 +13,12 @@ const authController = {
 
     try {
       // hash
-      if (!validator.isEmail(email)) {
-        errors = 'Email is not valid';
-      }
-      if (validator.isEmpty(email) || validator.isEmpty(password)) {
-        errors = 'All field must not be empty';
-      }
+      // if (!validator.isEmail(email)) {
+      //   errors = 'Email is not valid';
+      // }
+      // if (validator.isEmpty(email) || validator.isEmpty(password)) {
+      //   errors = 'All field must not be empty';
+      // }
       const exist = await User.findOne({ email });
 
       if (exist) {
