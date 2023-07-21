@@ -106,9 +106,7 @@ export const Login = () => {
       return;
     }
 
-    const { email, password } = input;
-
-    requestLogin(dispatch, { email, password }, navigate, accessToken!);
+    requestLogin(dispatch, input, navigate, accessToken!);
   };
 
   useOnClickOutside(refInput, () => setIsClick(false));
