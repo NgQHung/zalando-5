@@ -31,12 +31,7 @@ const authController = {
         });
       }
       const hashedPassword = bcrypt.genSalt(10, function (err, salt) {
-        bcrypt.hash(password, salt, function (err, hash) {
-          return res.status(404).json({
-            message: err,
-            data: null,
-          });
-        });
+        bcrypt.hash(password, salt);
       });
 
       // create new user
