@@ -32,7 +32,7 @@ const authController = {
       }
 
       // const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, 10);
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
       // create new user
       const newUser = new User({
@@ -54,7 +54,7 @@ const authController = {
     }
   },
   login: async (req: Request, res: Response) => {
-    const { email, password } = req.body;
+    // const { email, password } = req.body;
     const user = await User.findOne({ email: req.body.email });
     try {
       if (!user) {
@@ -91,7 +91,6 @@ const authController = {
       return res.status(500).json({
         data: null,
         message: 'Oops!!! Something went wrong.',
-        password: password,
 
         error: err.message,
       });
