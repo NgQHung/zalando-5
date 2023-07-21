@@ -49,8 +49,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json({}));
 /** Parse the body - middleware */
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
   // res.setHeader('Cache-Control', 'max-age=1209600');
   // res.setHeader('Cache-Control', 'no-cache');
