@@ -38,7 +38,7 @@ const authController = {
       const newUser = new User({
         firstName: firstName,
         email: email,
-        password: hashedPassword,
+        // password: hashedPassword,
       });
 
       // create an user on Mongoose
