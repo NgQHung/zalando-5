@@ -9,4 +9,10 @@ export const uriBase = {
   server: "https://zalando-5-be.vercel.app",
 };
 
-export const authAxios = axios.create({ baseURL: uriBase.server });
+export const authAxios = axios.create({
+  baseURL: uriBase.server,
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+  },
+  // withCredentials: true,
+});
