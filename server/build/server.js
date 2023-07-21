@@ -30,7 +30,7 @@ app.use('/', express_1.default.static(path_1.default.join(__dirname, '../client/
 //   credentials: true,
 //   origin: true,
 // };
-app.use(cors({ credentials: true, origin: process.env.CLIENT_URI_1 }));
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URI }));
 app.use((0, cookie_parser_1.default)());
 app.use((0, helmet_1.default)());
 app.use(function (req, res, next) {

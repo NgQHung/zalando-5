@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(helmet());
 
 app.use(function (_req, res: Response, next: NextFunction) {
-  res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI_1);
+  res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI);
   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
   res.header(
     'Access-Control-Allow-Headers',
