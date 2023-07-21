@@ -82,8 +82,9 @@ export const Signup = () => {
       setIsSubmitted(true);
       return;
     }
+    const { showPassword, ...restInput } = input;
 
-    requestSignup(dispatch, { ...input, interest: checkbox?.interest }, navigate);
+    requestSignup(dispatch, { ...restInput, interest: checkbox?.interest }, navigate);
   };
 
   useOnClickOutside(refInput, () => setIsClick(false));

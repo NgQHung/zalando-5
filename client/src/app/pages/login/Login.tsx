@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { Fragment, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -106,7 +107,9 @@ export const Login = () => {
       return;
     }
 
-    requestLogin(dispatch, input, navigate, accessToken!);
+    const { showPassword, ...restInput } = input;
+
+    requestLogin(dispatch, restInput, navigate, accessToken!);
   };
 
   useOnClickOutside(refInput, () => setIsClick(false));
