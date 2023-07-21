@@ -12,10 +12,7 @@ const authController = {
     let errors;
 
     try {
-      // hash the password
-      if (!validator.isStrongPassword(password)) {
-        errors = 'Password is not strong enough';
-      }
+      // hash
       if (!validator.isEmail(email)) {
         errors = 'Email is not valid';
       }
