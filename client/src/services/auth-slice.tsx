@@ -59,7 +59,7 @@ export const requestSignup = (dispatch: Dispatch, user: User_signup, navigate: N
           dispatch(UIActions.loadingPage(false));
         })
         .catch((error) => {
-          dispatch(authenticationActions.signupFail(error.response.data.message));
+          dispatch(authenticationActions.signupFail(error.response.data ? error.response.data.message : ""));
           toast.update(id, {
             render: error.response?.data.message,
             type: "error",
