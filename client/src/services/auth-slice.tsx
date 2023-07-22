@@ -59,9 +59,10 @@ export const requestSignup = (dispatch: Dispatch, user: User_signup, navigate: N
           dispatch(UIActions.loadingPage(false));
         })
         .catch((error) => {
-          dispatch(authenticationActions.signupFail(error.response.data ? error.response.data.message : ""));
+          const err = error.response.data ? error.response.data.message : "Something went wrong";
+          dispatch(authenticationActions.signupFail(err));
           toast.update(id, {
-            render: error.response?.data.message,
+            render: err,
             type: "error",
             isLoading: false,
             autoClose: 1500,
