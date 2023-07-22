@@ -45,12 +45,12 @@ app.use(function (_req, res: Response, next: NextFunction) {
 });
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json({}));
 /** Parse the body - middleware */
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
   // res.setHeader('Cache-Control', 'max-age=1209600');
   // res.setHeader('Cache-Control', 'no-cache');
