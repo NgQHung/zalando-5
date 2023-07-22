@@ -54,7 +54,9 @@ const Login_signup_mobile = () => {
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    requestSignup(dispatch, { ...input, interest: checkbox?.interest }, navigate);
+    const { showPassword, ...restInput } = input;
+    // { ...restInput, interest: checkbox?.interest }
+    requestSignup(dispatch, restInput, navigate);
   };
 
   useOnClickOutside(refInput, () => setIsClick(false));
