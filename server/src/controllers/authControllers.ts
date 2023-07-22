@@ -51,6 +51,7 @@ const authController = {
           // hashedPassword: hashedPassword,
           password: password,
         },
+        'req.body': req.body ? req.body : 'nothing',
         firstName: firstName,
         email: email,
         // hashedPassword: hashedPassword,
