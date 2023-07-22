@@ -3,11 +3,13 @@ import env from 'dotenv';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import router from './src/routes';
-import mongoose, { ConnectOptions, Path } from 'mongoose';
+import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import serveStatic from 'serve-static';
 import path from 'path';
+import multer from 'multer';
 var cors = require('cors');
+var upload = multer();
 
 // Listen on a specific port via the PORT environment variable
 const PORT = process.env.PORT || 8080;
@@ -49,9 +51,14 @@ app.use(function (_req, res: Response, next: NextFunction) {
 // parse application/json
 // app.use(bodyParser.json());
 /** Parse the body - middleware */
+// for parsing application/json
 app.use(express.json());
-// app.use(express.text());
-app.use(express.urlencoded({ extended: false }));
+
+// for parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
+// for parsing multipart/form-data
+app.use(upload.array('data'));
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
   // res.setHeader('Cache-Control', 'max-age=1209600');
   // res.setHeader('Cache-Control', 'no-cache');
