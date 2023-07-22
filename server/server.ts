@@ -47,7 +47,7 @@ app.use(function (_req, res: Response, next: NextFunction) {
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
-app.use(bodyParser.json({}));
+// app.use(bodyParser.json({}));
 /** Parse the body - middleware */
 // app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
