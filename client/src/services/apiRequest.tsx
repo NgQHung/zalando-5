@@ -176,7 +176,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
   });
   let response;
   try {
-    response = await window.fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`, {
+    response = await fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`, {
       headers: new Headers({
         Authorization: `Bearer ${user?.accessToken}`,
         // 'Content-Type': 'application/x-www-form-urlencoded'
