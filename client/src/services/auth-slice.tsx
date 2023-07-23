@@ -16,11 +16,14 @@ export const requestLogin = (
   accessToken: string
   // nameProduct: string
 ) => {
+  const params = new URLSearchParams();
+  params.append("email", user.email);
+  params.append("password", user.password);
   try {
     dispatch(UIActions.loadingPage(true));
     setTimeout(async () => {
       await authAxios
-        .post(`/v1/auth/login`, user)
+        .post(`/v1/auth/login`, params)
         .then((data) => {
           dispatch(userActions.loginHandler(data.data));
           localStorage.setItem("User", JSON.stringify(data.data));
