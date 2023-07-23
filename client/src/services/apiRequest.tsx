@@ -169,10 +169,8 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Content-Type": "application/json",
-      Connection: "Keep-Alive",
     },
-    // withCredentials: true,
+    withCredentials: true,
   });
   let response;
   try {
