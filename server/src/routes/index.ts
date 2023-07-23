@@ -8,14 +8,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 const router = express.Router();
 
 // products
-router.get(
-  '/products',
-  createProxyMiddleware({
-    target: 'https://zalando-5-be.vercel.app',
-    changeOrigin: true,
-  }),
-  getAllProducts
-);
+router.get('/products', getAllProducts);
 router.get('/product/:id', getProductsDetail);
 
 // authentication
