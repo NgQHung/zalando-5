@@ -11,7 +11,7 @@ const router = express.Router();
 router.get(
   '/products',
   createProxyMiddleware({
-    target: 'https://zalando-5-be.vercel.app',
+    target: 'https://zalando-5-be.vercel.app/products',
     changeOrigin: true,
   }),
   getAllProducts
