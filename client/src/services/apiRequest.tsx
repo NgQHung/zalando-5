@@ -182,8 +182,8 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
         // 'Content-Type': 'application/x-www-form-urlencoded'
       }),
     });
-    const { data } = await response.json();
-    console.log(data);
+    // const { data } = await response.json();
+    console.log(response);
     // response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
     // dispatch(cartActions.getLikedProduct(data));
   } catch (error: any) {
