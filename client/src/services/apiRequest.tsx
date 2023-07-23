@@ -176,6 +176,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
   });
   let response;
   try {
+<<<<<<< HEAD
     // response = await fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`, {
     //   headers: new Headers({
     //     Authorization: `Bearer ${user?.accessToken}`,
@@ -184,6 +185,8 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     // });
     // const { data } = await response.json();
     // console.log(response);
+=======
+>>>>>>> 2df2c80
     response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
     dispatch(cartActions.getLikedProduct(response.data.data));
   } catch (error: any) {
