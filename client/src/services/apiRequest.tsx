@@ -150,9 +150,11 @@ export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProd
 export const postLikedProductById = async (dispatch: Dispatch, user: any, data: ILikedProductsId[]) => {
   const authAxios = axios.create({
     baseURL: uriBase.server,
+
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
     },
+    withCredentials: true,
   });
 
   try {
