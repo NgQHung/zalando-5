@@ -18,9 +18,9 @@ env.config({ path: path.resolve(__dirname, './.env') });
 
 const app = express();
 
-app.options('/*', (_, res) => {
-  res.sendStatus(200);
-});
+// app.options('/*', (_, res) => {
+//   res.sendStatus(200);
+// });
 
 // serve static
 app.use(serveStatic('public/ftp', { index: ['default.html', 'default.htm'] }));
