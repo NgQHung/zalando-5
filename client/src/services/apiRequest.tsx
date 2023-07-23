@@ -21,7 +21,7 @@ export interface User {
 }
 
 var config = {
-  headers: { "Access-Control-Allow-Origin": "*" },
+  Accept: "*/*, application/json, text/plain",
 };
 
 // get all products
@@ -114,7 +114,7 @@ export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: 
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "*",
+      Accept: "*/*, application/json, text/plain",
     },
     // withCredentials: true,
   });
@@ -129,7 +129,7 @@ export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProd
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "*",
+      Accept: "*/*, application/json, text/plain",
     },
     // withCredentials: true,
   });
@@ -152,7 +152,7 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "*",
+      Accept: "*/*, application/json, text/plain",
     },
     // withCredentials: true,
   });
@@ -169,7 +169,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "*",
+      Accept: "*/*, application/json, text/plain",
     },
     // withCredentials: true,
   });
@@ -187,7 +187,7 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "*",
+      Accept: "*/*, application/json, text/plain",
     },
     // withCredentials: true,
   });
@@ -204,7 +204,7 @@ export const getAddressDeliveryById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "*",
+      Accept: "*/*, application/json, text/plain",
     },
     // withCredentials: true,
   });
@@ -230,7 +230,7 @@ export const postPurchasedProducts = async (
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "*",
+      Accept: "*/*, application/json, text/plain",
     },
     // withCredentials: true,
   });
@@ -247,7 +247,7 @@ export const getPurchasedProducts = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "*",
+      Accept: "*/*, application/json, text/plain",
     },
     // withCredentials: true,
   });
