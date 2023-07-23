@@ -116,6 +116,7 @@ const SIGNUP_FORM = ({
                 onClick={onClickHandler}
                 onChange={onChangeHandler}
                 onBlur={firstNameBlurHandler}
+                autoComplete="current-password"
               />
             </div>
             {emptyFirstNameInputError ? (
@@ -157,6 +158,7 @@ const SIGNUP_FORM = ({
                 onClick={onClickHandler}
                 onChange={onChangeHandler}
                 onBlur={lastNameBlurHandler}
+                autoComplete="current-password"
               />
             </div>
             {emptyLastNameInputError ? (
@@ -198,6 +200,7 @@ const SIGNUP_FORM = ({
                 onClick={onClickHandler}
                 onChange={onChangeHandler}
                 onBlur={emailBlurHandler}
+                autoComplete="current-password"
               />
             </div>
             {emptyEmailInputError ? (
@@ -240,6 +243,7 @@ const SIGNUP_FORM = ({
                 onBlur={passwordBlurHandler}
                 onClick={onClickHandler}
                 onChange={onChangeHandler}
+                autoComplete="current-password"
               />
               <button type="button" className="py-2 pr-3" onClick={togglePassword}>
                 {passwordType === "password" ? (
@@ -283,6 +287,7 @@ const SIGNUP_FORM = ({
                   value="women"
                   className="h-[26px] w-[26px] cursor-pointer "
                   onChange={onChangeCheckboxHandler}
+                  autoComplete="current-password"
                 />
                 <label className="pl-[10px]" htmlFor="damy">
                   Dámská móda
@@ -294,6 +299,7 @@ const SIGNUP_FORM = ({
                   value="men"
                   className="h-[26px] w-[26px] cursor-pointer"
                   onChange={onChangeCheckboxHandler}
+                  autoComplete="current-password"
                 />
                 <label className="pl-[10px] " htmlFor="pani">
                   Pánská móda
@@ -305,6 +311,7 @@ const SIGNUP_FORM = ({
                   value="noInterest"
                   className="h-[26px] w-[26px] cursor-pointer"
                   onChange={onChangeCheckboxHandler}
+                  autoComplete="current-password"
                 />
                 <label className="pl-[10px]" htmlFor="none">
                   Bez preference
@@ -318,6 +325,7 @@ const SIGNUP_FORM = ({
               value="dailyInfo"
               className="h-[26px] w-[26px] pr-[24px] shrink-0  cursor-pointer"
               onChange={onChangeCheckboxHandler}
+              autoComplete="current-password"
             />
             <label className="pl-3">
               Ano, chci občas dostávat e-maily o speciálních nabídkách, nových produktech a exkluzivních propagačních

@@ -163,22 +163,18 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
 };
 
 export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
-  let conf: AxiosRequestConfig = {};
-
-  conf.validateStatus = (status: number) => {
-    return (status >= 200 && status < 300) || status == 404;
-  };
-
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-Type": "application/json",
+      Connection: "Keep-Alive",
     },
     // withCredentials: true,
   });
   let response;
   try {
-    response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`, conf);
+    response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
     dispatch(cartActions.getLikedProduct(response.data.data));
   } catch (error: any) {
     toast.error(error.response.data ? error.response.data.message : "Something went wrong");
