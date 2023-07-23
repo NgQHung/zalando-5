@@ -167,6 +167,7 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
 export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
   const authAxios = axios.create({
     baseURL: uriBase.server,
+
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
       "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
@@ -174,10 +175,14 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     },
     withCredentials: false,
   });
-  let response;
+  let response: any;
   try {
-    response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
-    dispatch(cartActions.getLikedProduct(response.data.data));
+    const xhr = new XMLHttpRequest();
+    response = xhr.open("GET", `${uriBase.server}/v1/user/${user?._id}/liked/products`, true);
+    // response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
+    xhr.onload = () => {
+      dispatch(cartActions.getLikedProduct(response.data.data));
+    };
   } catch (error: any) {
     toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
