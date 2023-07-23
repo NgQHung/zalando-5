@@ -176,7 +176,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
   });
   let response;
   try {
-    response = await window.fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`, {});
+    response = await window.fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
     const { data } = await response.json();
     console.log(data);
     // response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
