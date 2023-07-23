@@ -20,6 +20,10 @@ export interface User {
   _id: string;
 }
 
+var config = {
+  headers: { "Access-Control-Allow-Origin": "*" },
+};
+
 // get all products
 export const getProducts = async (
   dispatch: Dispatch,
@@ -110,7 +114,7 @@ export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: 
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     // withCredentials: true,
   });
@@ -125,7 +129,7 @@ export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProd
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     // withCredentials: true,
   });
@@ -148,7 +152,7 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     // withCredentials: true,
   });
@@ -165,7 +169,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     // withCredentials: true,
   });
@@ -183,7 +187,7 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     // withCredentials: true,
   });
@@ -200,7 +204,7 @@ export const getAddressDeliveryById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     // withCredentials: true,
   });
@@ -226,7 +230,7 @@ export const postPurchasedProducts = async (
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     // withCredentials: true,
   });
@@ -243,7 +247,7 @@ export const getPurchasedProducts = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     // withCredentials: true,
   });
