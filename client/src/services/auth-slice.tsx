@@ -38,7 +38,7 @@ export const requestLogin = (
       dispatch(UIActions.loadingPage(false));
     }, 1000);
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -58,7 +58,12 @@ export const requestSignup = (dispatch: Dispatch, user: User_signup, navigate: N
         .post(`/v1/auth/register`, params)
         .then((res) => {
           setTimeout(() => {
-            toast.update(id, { render: res.data.message, type: "success", isLoading: false, autoClose: 1500 });
+            toast.update(id, {
+              render: res.data ? res.data.message : "Something went wrong",
+              type: "success",
+              isLoading: false,
+              autoClose: 1500,
+            });
           }, 1500);
         })
         .then(() => {
@@ -80,7 +85,7 @@ export const requestSignup = (dispatch: Dispatch, user: User_signup, navigate: N
       dispatch(UIActions.loadingPage(false));
     }, 1000);
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -102,6 +107,6 @@ export const requestLogout = (dispatch: Dispatch, navigate: NavigateFunction, ac
       dispatch(UIActions.loadingPage(false));
     }, 1000);
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };

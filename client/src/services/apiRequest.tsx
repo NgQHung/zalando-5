@@ -76,7 +76,7 @@ export const getProducts = async (
       dispatch(UIActions.loadingPage(false));
     }, 1000);
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -100,7 +100,7 @@ export const getDetailProduct = async (dispatch: Dispatch, id: number | null, us
       dispatch(UIActions.loadingPage(false));
     }, 1000);
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -110,13 +110,14 @@ export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: 
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-type": "application/json",
     },
     // withCredentials: true,
   });
   try {
     await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/shopping-cart`, { data: data });
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProducts: Products[]) => {
@@ -124,6 +125,7 @@ export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProd
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-type": "application/json",
     },
     // withCredentials: true,
   });
@@ -137,7 +139,7 @@ export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProd
       dispatch(UIActions.loadingPage(false));
     }, 1000);
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -146,6 +148,7 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-type": "application/json",
     },
     // withCredentials: true,
   });
@@ -153,7 +156,7 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
   try {
     await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/liked`, { data: data });
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -162,6 +165,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-type": "application/json",
     },
     // withCredentials: true,
   });
@@ -170,7 +174,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
     dispatch(cartActions.getLikedProduct(response.data.data));
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -179,6 +183,7 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-type": "application/json",
     },
     // withCredentials: true,
   });
@@ -186,7 +191,7 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
   try {
     await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/address-delivery`, { data: data });
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -195,6 +200,7 @@ export const getAddressDeliveryById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-type": "application/json",
     },
     // withCredentials: true,
   });
@@ -204,7 +210,7 @@ export const getAddressDeliveryById = async (dispatch: Dispatch, user: any) => {
     response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/address-delivery/info`);
     dispatch(checkoutActions.addressDeliveryHandler(response.data.data));
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -220,6 +226,7 @@ export const postPurchasedProducts = async (
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-type": "application/json",
     },
     // withCredentials: true,
   });
@@ -227,7 +234,7 @@ export const postPurchasedProducts = async (
   try {
     await authAxios.post(`${uriBase.server}/v1/user/${user?._id}/purchased-products/post`, data);
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
 
@@ -236,6 +243,7 @@ export const getPurchasedProducts = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-type": "application/json",
     },
     // withCredentials: true,
   });
@@ -246,6 +254,6 @@ export const getPurchasedProducts = async (dispatch: Dispatch, user: any) => {
     response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/purchased-products`);
     dispatch(checkoutActions.getAllPurchasedProductsById(response.data.data));
   } catch (error: any) {
-    toast.error(error.response?.data.message);
+    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
