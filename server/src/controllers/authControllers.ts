@@ -13,12 +13,12 @@ const authController = {
 
     try {
       // hash
-      // if (!validator.isEmail(email)) {
-      //   errors = 'Email is not valid';
-      // }
-      // if (validator.isEmpty(email) || validator.isEmpty(password)) {
-      //   errors = 'All field must not be empty';
-      // }
+      if (!validator.isEmail(email)) {
+        errors = 'Email is not valid';
+      }
+      if (validator.isEmpty(email) || validator.isEmpty(password)) {
+        errors = 'All field must not be empty';
+      }
       const exist = await User.findOne({ email });
 
       if (exist) {
@@ -31,34 +31,19 @@ const authController = {
         });
       }
 
-      // const salt = await bcrypt.genSalt(10);
-      // const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
 
       // create new user
       const newUser = new User({
         firstName: firstName,
         email: email,
-        // password: hashedPassword,
+        password: hashedPassword,
       });
 
       // create an user on Mongoose
-      // const user = await newUser.save();
-      // return res.status(200).json({ data: user, message: 'You are registered successfully' });
-      return res.status(200).json({
-        data: {
-          firstName: firstName,
-          email: email,
-          // hashedPassword: hashedPassword,
-          password: password,
-        },
-        'req.body': req.body ? req.body : 'nothing',
-        firstName: firstName,
-        email: email,
-        // hashedPassword: hashedPassword,
-        password: password,
-        passwordd: 'hello',
-        message: 'You are registered successfully',
-      });
+      const user = await newUser.save();
+      return res.status(200).json({ data: user, message: 'You are registered successfully' });
     } catch (error) {
       const err = error as AxiosError;
       return res.status(500).json({
