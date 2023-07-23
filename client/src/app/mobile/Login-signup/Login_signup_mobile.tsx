@@ -56,7 +56,7 @@ const Login_signup_mobile = () => {
     e.preventDefault();
     const { showPassword, ...restInput } = input;
     // { ...restInput, interest: checkbox?.interest }
-    requestSignup(dispatch, restInput, navigate);
+    requestSignup(dispatch, { ...restInput }, navigate);
   };
 
   useOnClickOutside(refInput, () => setIsClick(false));

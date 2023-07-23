@@ -84,7 +84,7 @@ export const Signup = () => {
     }
     const { showPassword, ...restInput } = input;
 
-    requestSignup(dispatch, restInput, navigate);
+    requestSignup(dispatch, { ...restInput }, navigate);
   };
 
   useOnClickOutside(refInput, () => setIsClick(false));
