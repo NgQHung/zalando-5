@@ -40,13 +40,19 @@ userRouter.get('/:id/purchased-products', userController.getPurchasedProductsByI
 // get data of user
 userRouter.get(
   '/:id/shopping-cart/products',
-
   createProxyMiddleware({
     target: 'https://zalando-5-be.vercel.app/v1/user/:id/shopping-cart/products',
     changeOrigin: true,
   }),
   userController.getProductsFromShoppingCartById
 );
-userRouter.get('/:id/liked/products', userController.getProductsFromLiked);
+userRouter.get(
+  '/:id/liked/products',
+  createProxyMiddleware({
+    target: 'https://zalando-5-be.vercel.app/v1/user/:id/liked/products',
+    changeOrigin: true,
+  }),
+  userController.getProductsFromLiked
+);
 
 export default userRouter;
