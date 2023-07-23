@@ -42,11 +42,14 @@ export const requestLogin = (
 // request register
 export const requestSignup = (dispatch: Dispatch, user: User_signup, navigate: NavigateFunction) => {
   const id = toast.loading("Please wait...");
+  // const params = new URLSearchParams(user);
+  // params.append("extraparam", "value");
   try {
     dispatch(UIActions.loadingPage(true));
+
     setTimeout(async () => {
       await authAxios
-        .post(`/v1/auth/register`, user)
+        .post(`/v1/auth/register`, JSON.stringify(user))
         .then((res) => {
           setTimeout(() => {
             toast.update(id, { render: res.data.message, type: "success", isLoading: false, autoClose: 1500 });
