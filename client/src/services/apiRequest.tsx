@@ -178,9 +178,9 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
   try {
     response = await window.fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`, {});
     const { data } = await response.json();
-
+    console.log(data);
     // response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
-    dispatch(cartActions.getLikedProduct(data));
+    // dispatch(cartActions.getLikedProduct(data));
   } catch (error: any) {
     toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
