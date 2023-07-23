@@ -6,11 +6,18 @@ import User from '../models/user';
 import PurchasedProducts from '../models/userPurchasedProducts';
 import { AxiosError } from 'axios';
 
+const OPTIONS404 = {
+  data: null,
+};
+
 const userController = {
   // get all users
   getAllUsers: async (req: Request, res: Response) => {
     try {
       const allUsers = await User.find();
+      if (!allUsers) {
+        return res.status(404).json(OPTIONS404);
+      }
       return res.status(200).json({ data: allUsers });
     } catch (error) {
       const err = error as AxiosError;
@@ -146,7 +153,7 @@ const userController = {
       const all = await AddressDelivery.findOne({ _id: id });
       // if(AddressDelivery?._id )
       if (!all) {
-        return res.status(200).json({
+        return res.status(404).json({
           _id: id,
           data: {},
         });
@@ -169,7 +176,7 @@ const userController = {
       if (all) {
         return res.status(200).json(all);
       } else {
-        return res.status(200).json({ _id: id, data: [] });
+        return res.status(404).json({ _id: id, data: [] });
       }
     } catch (error) {
       const err = error as AxiosError;
@@ -188,7 +195,7 @@ const userController = {
       if (all) {
         return res.status(200).json(all);
       } else {
-        return res.status(200).json({ _id: id, data: [] });
+        return res.status(404).json({ _id: id, data: [] });
       }
     } catch (error) {
       const err = error as AxiosError;
@@ -248,7 +255,7 @@ const userController = {
     try {
       const all = await PurchasedProducts.findOne({ _id: id });
       if (!all) {
-        return res.status(200).json({
+        return res.status(404).json({
           _id: id,
           data: [],
         });
