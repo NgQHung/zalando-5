@@ -176,13 +176,8 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
   });
   let response;
   try {
-    response = await window.fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json;charset=UTF-8",
-      },
-    });
-    const { data, errors } = await response.json();
+    response = await window.fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`, {});
+    const { data } = await response.json();
 
     // response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
     dispatch(cartActions.getLikedProduct(data));
