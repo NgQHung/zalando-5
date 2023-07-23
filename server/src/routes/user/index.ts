@@ -6,32 +6,32 @@ import middleware from '../../middlewares/requireAuth';
 const userRouter = express.Router();
 
 // get all users
-userRouter.get('/all', middleware.verifyToken, userController.getAllUsers);
+userRouter.get('/all', userController.getAllUsers);
 
 // delete a user by ID
 userRouter.delete('/:id', middleware.verifyTokenAndAdmin, userController.deleteUser);
 
 // post data of user
-userRouter.post('/:id/shopping-cart', middleware.verifyToken, userController.addProductToShoppingCart);
-userRouter.post('/:id/liked', middleware.verifyToken, userController.addProductToLiked);
+userRouter.post('/:id/shopping-cart', userController.addProductToShoppingCart);
+userRouter.post('/:id/liked', userController.addProductToLiked);
 
 // post data address delivery user
-userRouter.post('/:id/address-delivery', middleware.verifyToken, userController.addAddressDeliveryUser);
+userRouter.post('/:id/address-delivery', userController.addAddressDeliveryUser);
 
 // get data address delivery user
-userRouter.get('/:id/address-delivery/info', middleware.verifyToken, userController.getAddressDeliveryById);
+userRouter.get('/:id/address-delivery/info', userController.getAddressDeliveryById);
 
 // post data purchased products && method payment user
-userRouter.post('/:id/purchased-products/post', middleware.verifyToken, userController.postPurchasedProductsById);
+userRouter.post('/:id/purchased-products/post', userController.postPurchasedProductsById);
 
 // post data added products user
-// userRouter.post('/:id/added-products/post', middleware.verifyToken, userProductController.addedProduct);
+// userRouter.post('/:id/added-products/post',  userProductController.addedProduct);
 
 // get data purchased products && method payment user
-userRouter.get('/:id/purchased-products', middleware.verifyToken, userController.getPurchasedProductsById);
+userRouter.get('/:id/purchased-products', userController.getPurchasedProductsById);
 
 // get data of user
-userRouter.get('/:id/shopping-cart/products', middleware.verifyToken, userController.getProductsFromShoppingCartById);
-userRouter.get('/:id/liked/products', middleware.verifyToken, userController.getProductsFromLiked);
+userRouter.get('/:id/shopping-cart/products', userController.getProductsFromShoppingCartById);
+userRouter.get('/:id/liked/products', userController.getProductsFromLiked);
 
 export default userRouter;
