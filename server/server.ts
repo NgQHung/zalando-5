@@ -1,6 +1,5 @@
 import express, { NextFunction, Response } from 'express';
 import env from 'dotenv';
-import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import router from './src/routes';
 import mongoose from 'mongoose';
@@ -38,16 +37,23 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(cookieParser());
-app.use(helmet());
 
-app.use(function (_req, res: Response, next: NextFunction) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
-  );
-  res.header('Access-Control-Allow-Credentials', 'true');
+// app.use(function (_req, res: Response, next: NextFunction) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
+//   );
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   next();
+// });
+
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
 });
 
