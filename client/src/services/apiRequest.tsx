@@ -176,16 +176,16 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
   });
   let response;
   try {
-    response = await fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`, {
-      headers: new Headers({
-        Authorization: `Bearer ${user?.accessToken}`,
-        // 'Content-Type': 'application/x-www-form-urlencoded'
-      }),
-    });
+    // response = await fetch(`${uriBase.server}/v1/user/${user?._id}/liked/products`, {
+    //   headers: new Headers({
+    //     Authorization: `Bearer ${user?.accessToken}`,
+    //     // 'Content-Type': 'application/x-www-form-urlencoded'
+    //   }),
+    // });
     // const { data } = await response.json();
-    console.log(response);
-    // response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
-    // dispatch(cartActions.getLikedProduct(data));
+    // console.log(response);
+    response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/liked/products`);
+    dispatch(cartActions.getLikedProduct(response.data.data));
   } catch (error: any) {
     toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
