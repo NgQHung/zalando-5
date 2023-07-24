@@ -53,7 +53,7 @@ const cartSlice = createSlice({
       state.addedShoppingCart = action.payload;
     },
     getLikedProduct(state, action) {
-      state.likedProductsId = action.payload;
+      state.likedProductsId = action.payload || [];
     },
     addShoppingCartHandler(state, action) {
       const idProduct = action.payload.id;

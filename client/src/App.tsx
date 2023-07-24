@@ -24,6 +24,7 @@ function App() {
     try {
       if (user) {
         getLikedProductById(dispatch, user);
+
         if (likedProductsFromDB.length > 0) {
           getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
         }
