@@ -167,7 +167,7 @@ const WardrobeList = () => {
       return;
     }
     postLikedProductById(dispatch, user, addedFavorite);
-  }, [addedFavorite.length]);
+  }, [Array(addedFavorite).length]);
 
   React.useEffect(() => {
     let subscribe = true;

@@ -51,7 +51,7 @@ export const ListProducts = () => {
       return;
     }
     postLikedProductById(dispatch, user, addedFavorite);
-  }, [addedFavorite.length]);
+  }, [Array(addedFavorite).length]);
 
   React.useEffect(() => {
     if (selectedProduct) {

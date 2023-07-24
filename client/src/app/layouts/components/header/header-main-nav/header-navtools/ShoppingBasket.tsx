@@ -32,7 +32,7 @@ const ShoppingBasket = () => {
 
   const navigate = useNavigate();
 
-  const lengthAddedShoppingCart = useMemo(() => addedShoppingCart.length, [addedShoppingCart.length]) || 0;
+  const lengthAddedShoppingCart = useMemo(() => addedShoppingCart.length, [Array(addedShoppingCart).length]) || 0;
   const [shadow, setShadow] = React.useState(true);
   const [posProduct, setPosProduct] = useState<number | null>(null);
 

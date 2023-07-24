@@ -65,7 +65,7 @@ export const Home = () => {
       return;
     }
     postLikedProductById(dispatch, user, addedFavorite);
-  }, [addedFavorite.length]);
+  }, [Array(addedFavorite).length]);
 
   return (
     <Fragment>

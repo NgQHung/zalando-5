@@ -32,7 +32,7 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }, [likedProductsFromDB.length]);
+  }, [Array(likedProductsFromDB).length]);
 
   // useEffect(() => {
   //   getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
@@ -45,7 +45,7 @@ function App() {
       dispatch(UIActions.loading__total({ loading__total: false }));
     }, 300);
     dispatch(cartActions.calculateTotals());
-  }, [addedShoppingCart.length]);
+  }, [Array(addedShoppingCart).length]);
 
   return (
     <div className="App">
