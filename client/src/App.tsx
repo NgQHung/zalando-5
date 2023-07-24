@@ -20,6 +20,20 @@ function App() {
 
   // if()
 
+  // useEffect(() => {
+  //   try {
+  //     if (user) {
+  //       getLikedProductById(dispatch, user);
+  //       if (likedProductsFromDB.length > 0) {
+  //         getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
+  //       }
+  //     } else {
+  //       getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [likedProductsFromDB.length]);
   useEffect(() => {
     try {
       if (user) {
@@ -33,7 +47,7 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }, [likedProductsFromDB.length]);
+  }, [likedProductsFromDB]);
 
   // useEffect(() => {
   //   getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
