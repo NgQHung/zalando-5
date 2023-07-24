@@ -4,7 +4,7 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Fragment, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Stepper, stepperData } from "./data";
+import { stepperData } from "./data";
 
 const ProgressBar = () => {
   const location = useLocation();

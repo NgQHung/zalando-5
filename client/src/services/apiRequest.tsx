@@ -121,12 +121,6 @@ export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: 
   }
 };
 export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProducts: Products[]) => {
-  let conf: AxiosRequestConfig = {};
-
-  conf.validateStatus = (status: number) => {
-    return (status >= 200 && status < 300) || status == 404;
-  };
-
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {
@@ -138,7 +132,7 @@ export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProd
   try {
     dispatch(UIActions.loadingPage(true));
     setTimeout(async () => {
-      response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/shopping-cart/products`, conf);
+      response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/shopping-cart/products`);
       dispatch(cartActions.getShoppingCart(response.data.data));
       dispatch(UIActions.loadingPage(false));
     }, 1000);

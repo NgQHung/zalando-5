@@ -1,4 +1,4 @@
-import React, { Fragment, memo, useEffect } from "react";
+import React, { Fragment, memo } from "react";
 import "./HeaderInput.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";

@@ -1,11 +1,9 @@
-import React from "react";
 import { Home } from "../pages/home/Home";
 import { routeConfig } from "./routeConfig";
 import { PrivateRoutes, PublicRoutes } from "./types";
 import { Login } from "../pages/login/Login";
 import { Signup } from "../pages/signup/Signup";
 import { NoFooterHeaderLayout } from "../layouts/NoFooter&HeaderLayout";
-import FormLayout from "../layouts/FormLayout";
 import Product from "../pages/product/Product";
 import SearchMobile from "../pages/mobile/search";
 import Faq from "../pages/faq/Faq";

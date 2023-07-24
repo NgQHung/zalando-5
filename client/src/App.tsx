@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment, useEffect } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import DefaultLayout from "./app/layouts/DefaultLayout";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { privateRoutes, publicRoutes } from "./app/routes";

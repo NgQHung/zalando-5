@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { Fragment, memo, useCallback, useMemo, useState } from "react";
+import React, { Fragment, memo, useCallback, useState } from "react";
 import { cartActions } from "../../../../../../stores/cart-slice";
 import { formatPrice } from "../../../../../../utils/formatPrice";
 import { ImgToHttp } from "../../../../../../utils/imageToHTTP";

@@ -41,7 +41,6 @@ const SIGNUP_FORM = ({
   isSubmitted,
 }: IProps) => {
   const signupFail = useAppSelector((state) => state.authenticationSlice.signupFail);
-  const emailInputRef = useRef<HTMLInputElement>(null);
   // const emptyInput = input
   const [emailIsTouched, setEmailIsTouched] = React.useState<boolean>(false);
   const [passwordIsTouched, setPasswordIsTouched] = React.useState<boolean>(false);

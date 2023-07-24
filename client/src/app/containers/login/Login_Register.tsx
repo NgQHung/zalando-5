@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UIActions } from "../../../stores/UI-slice";
 import { useAppDispatch } from "../../hooks";
 
