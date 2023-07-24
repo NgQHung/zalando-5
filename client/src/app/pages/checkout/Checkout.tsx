@@ -26,14 +26,12 @@ const Checkout = () => {
 
   useEffect(() => {
     getAddressDeliveryById(dispatch, user);
-    // console.log("addressDelivery: ", addressDelivery);
-    // console.log("goToCheckoutState: ", goToCheckoutState);
-    // if (addressDelivery !== null) {
-    //   if (Object.keys(addressDelivery).length === 0) {
-    //     return;
-    //   }
-    //   return;
-    // }
+    if (addressDelivery !== null) {
+      if (Object.keys(addressDelivery).length === 0) {
+        return;
+      }
+      return;
+    }
     if (objIsEmptyOrNull(addressDelivery)) {
       return;
     }

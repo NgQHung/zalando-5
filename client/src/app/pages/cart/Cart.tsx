@@ -50,14 +50,13 @@ const Cart = () => {
 
   return (
     <Wrapper className=" ">
-      {/* {addedShoppingCart.length > 0 ? ( */}
-      {1 > 0 ? (
+      {addedShoppingCart.length > 0 ? (
         <div className="bg-[#f3f3f3]">
           <div className="flex p-6 gap-6">
             <div className="flex flex-col basis-[68%] gap-3 ">
               <div className="product-cart bg-[#ffff] p-6">
                 <div className="product-title text-[24px] leading-[28px] font-[700] pb-[32px]">
-                  {/* <span>Váš nákupní košík (Položky: {addedShoppingCart.length})</span> */}
+                  <span>Váš nákupní košík (Položky: {addedShoppingCart.length})</span>
                 </div>
                 <p className="text-[12px] leading-[18px] font-[700] pb-[24px]">Balíček doručí ZALANDO</p>
                 {addedShoppingCart.map((item, idx) => (

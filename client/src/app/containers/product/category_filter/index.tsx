@@ -13,11 +13,9 @@ const Category_filter = () => {
 
   const dropdownHandler = (type: string) => {
     setTypeFilter(type);
-    // if (getData) {
     if (getData.length === 0) {
       return;
     }
-    // }
     setDropdown((prev) => !prev);
   };
 
@@ -36,20 +34,20 @@ const Category_filter = () => {
             <span className="text-[16px] py-3 pl-3 pr-2">{item.title}</span>
             <FontAwesomeIcon icon={faChevronDown} className="h-5 object-cover mr-3 hidden xs:inline" />
             <div className="hidden xs:block">
-              {/* {dropdown && typeFilter === item.title && getData.length !== 0 ? ( */}
-              <div className="absolute top-full left-[-1px] bg-[#ffff] border border-[#1a1a1a] z-[10000] w-[312px] ">
-                {getData.map((item, index) => (
-                  <div key={index} className="hover:bg-[#dddd]">
-                    <div className="ml-6 border-b  py-4 pr-3 border-[#dddd] flex justify-between items-center">
-                      <p className="">{item}</p>
-                      <p className="h-6 w-6">
-                        <FontAwesomeIcon className="h-full w-full object-cover" icon={faCheck} />
-                      </p>
+              {dropdown && typeFilter === item.title && getData.length !== 0 ? (
+                <div className="absolute top-full left-[-1px] bg-[#ffff] border border-[#1a1a1a] z-[10000] w-[312px] ">
+                  {getData.map((item, index) => (
+                    <div key={index} className="hover:bg-[#dddd]">
+                      <div className="ml-6 border-b  py-4 pr-3 border-[#dddd] flex justify-between items-center">
+                        <p className="">{item}</p>
+                        <p className="h-6 w-6">
+                          <FontAwesomeIcon className="h-full w-full object-cover" icon={faCheck} />
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-              {/* ) : null} */}
+                  ))}
+                </div>
+              ) : null}
             </div>
           </button>
         ))}

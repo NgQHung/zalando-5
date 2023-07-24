@@ -32,8 +32,7 @@ const ShoppingBasket = () => {
 
   const navigate = useNavigate();
 
-  // const lengthAddedShoppingCart = addedShoppingCart.length || 0;
-  const lengthAddedShoppingCart = 0;
+  const lengthAddedShoppingCart = addedShoppingCart.length || 0;
   const [shadow, setShadow] = React.useState(true);
   const [posProduct, setPosProduct] = useState<number | null>(null);
 
@@ -89,11 +88,11 @@ const ShoppingBasket = () => {
     if (subscribe && user && !(localStorage.getItem("persist:root") === "")) {
       postShoppingCartById(dispatch, user, addedShoppingCart);
     }
-    // if (addedLikedProduct.length > 0) {
-    //   postLikedProductById(dispatch, user, addedLikedProduct);
-    // } else if (addedFavoriteProductsFromDB.length > 0) {
-    //   postLikedProductById(dispatch, user, addedFavoriteProductsFromDB);
-    // }
+    if (addedLikedProduct.length > 0) {
+      postLikedProductById(dispatch, user, addedLikedProduct);
+    } else if (addedFavoriteProductsFromDB.length > 0) {
+      postLikedProductById(dispatch, user, addedFavoriteProductsFromDB);
+    }
 
     return () => {
       subscribe = false;

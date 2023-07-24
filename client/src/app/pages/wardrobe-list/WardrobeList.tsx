@@ -151,16 +151,6 @@ const WardrobeList = () => {
 
   let isFirst = true;
 
-  // React.useEffect(() => {
-  //   if (isFirst) {
-  //     isFirst = false;
-  //   }
-  //   if (!user) {
-  //     return;
-  //   }
-  //   postLikedProductById(dispatch, user, addedFavorite);
-  // }, [Array(addedFavorite).length]);
-
   React.useEffect(() => {
     if (isFirst) {
       isFirst = false;
@@ -169,7 +159,7 @@ const WardrobeList = () => {
       return;
     }
     postLikedProductById(dispatch, user, addedFavorite);
-  }, [addedFavorite]);
+  }, [addedFavorite.length]);
 
   React.useEffect(() => {
     let subscribe = true;

@@ -57,24 +57,15 @@ export const Home = () => {
   }, [selectedProduct]);
   let isFirst = true;
 
-  // React.useEffect(() => {
-  //   if (isFirst) {
-  //     isFirst = false;
-  //   }
-  //   if (addedFavorite.length === 0) {
-  //     return;
-  //   }
-  //   postLikedProductById(dispatch, user, addedFavorite);
-  // }, [Array(addedFavorite).length]);
   React.useEffect(() => {
     if (isFirst) {
       isFirst = false;
     }
-    // if (addedFavorite.length === 0) {
-    //   return;
-    // }
+    if (addedFavorite.length === 0) {
+      return;
+    }
     postLikedProductById(dispatch, user, addedFavorite);
-  }, [addedFavorite]);
+  }, [addedFavorite.length]);
 
   return (
     <Fragment>
@@ -96,22 +87,22 @@ export const Home = () => {
             }
           ></Suspense>
         </ErrorBoundary>
-        {/* {loadingPage && products_1.length === 0 ? (
+        {loadingPage && products_1.length === 0 ? (
           <>
             <Loading /> <div className="h-screen" />
           </>
-        ) : ( */}
-        <Wrapper className="bg-[#229967]">
-          <div className="flex flex-col w-full h-full">
-            <HOME_TOPIC />
-            <HOME_PRODUCT
-              products={products_1}
-              selectedProductHandler={selectedProductHandler}
-              favoriteHandler={favoriteHandler}
-            />
-          </div>
-        </Wrapper>
-        {/* )} */}
+        ) : (
+          <Wrapper className="bg-[#229967]">
+            <div className="flex flex-col w-full h-full">
+              <HOME_TOPIC />
+              <HOME_PRODUCT
+                products={products_1}
+                selectedProductHandler={selectedProductHandler}
+                favoriteHandler={favoriteHandler}
+              />
+            </div>
+          </Wrapper>
+        )}
 
         {/* <Wrapper className="bg-[#229967] ">
           <div className="flex flex-col w-full h-full">
