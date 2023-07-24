@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { Fragment, useState } from "react";
 import { ProductDetail } from "../../../../interfaces/ProductDetail";
 import { useAppDispatch, useAppSelector } from "../../../hooks";

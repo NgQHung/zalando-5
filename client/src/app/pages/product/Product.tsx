@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { Suspense } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import "./Product.css";

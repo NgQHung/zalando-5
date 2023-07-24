@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { Fragment, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -117,10 +119,10 @@ export const Login = () => {
   useEffect(() => {
     let subscribe = true;
     if (user && subscribe) {
-      // getShoppingCartById(dispatch, user, allProducts);
-      // getLikedProductById(dispatch, user);
-      // getAddressDeliveryById(dispatch, user);
-      // getPurchasedProducts(dispatch, user);
+      getShoppingCartById(dispatch, user, allProducts);
+      getLikedProductById(dispatch, user);
+      getAddressDeliveryById(dispatch, user);
+      getPurchasedProducts(dispatch, user);
       localStorage.setItem("persist:root", "");
     }
     return () => {

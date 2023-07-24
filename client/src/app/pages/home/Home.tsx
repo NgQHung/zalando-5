@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { Fragment, Suspense } from "react";
 import "./Home.css";
 import { useAppDispatch, useAppSelector } from "../../hooks";
