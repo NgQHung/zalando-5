@@ -43,6 +43,15 @@ export const ListProducts = () => {
     }
   };
 
+  // React.useEffect(() => {
+  //   if (isFirst) {
+  //     isFirst = false;
+  //   }
+  //   if (!user) {
+  //     return;
+  //   }
+  //   postLikedProductById(dispatch, user, addedFavorite);
+  // }, [Array(addedFavorite).length])
   React.useEffect(() => {
     if (isFirst) {
       isFirst = false;
@@ -51,7 +60,7 @@ export const ListProducts = () => {
       return;
     }
     postLikedProductById(dispatch, user, addedFavorite);
-  }, [Array(addedFavorite).length]);
+  }, [addedFavorite]);
 
   React.useEffect(() => {
     if (selectedProduct) {

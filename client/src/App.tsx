@@ -40,13 +40,20 @@ function App() {
 
   // }, [])
 
+  // useEffect(() => {
+  //   dispatch(UIActions.loading__total({ loading__total: true }));
+  //   setTimeout(() => {
+  //     dispatch(UIActions.loading__total({ loading__total: false }));
+  //   }, 300);
+  //   dispatch(cartActions.calculateTotals());
+  // }, [Array(addedShoppingCart).length]);
   useEffect(() => {
     dispatch(UIActions.loading__total({ loading__total: true }));
     setTimeout(() => {
       dispatch(UIActions.loading__total({ loading__total: false }));
     }, 300);
     dispatch(cartActions.calculateTotals());
-  }, [Array(addedShoppingCart).length]);
+  }, [addedShoppingCart]);
 
   return (
     <div className="App">

@@ -66,6 +66,15 @@ export const Home = () => {
   //   }
   //   postLikedProductById(dispatch, user, addedFavorite);
   // }, [Array(addedFavorite).length]);
+  React.useEffect(() => {
+    if (isFirst) {
+      isFirst = false;
+    }
+    if (addedFavorite.length === 0) {
+      return;
+    }
+    postLikedProductById(dispatch, user, addedFavorite);
+  }, [addedFavorite]);
 
   return (
     <Fragment>
