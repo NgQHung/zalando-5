@@ -32,7 +32,7 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }, [likedProductsFromDB.length]);
+  }, [likedProductsFromDB ? likedProductsFromDB.length : [].length]);
 
   // useEffect(() => {
   //   getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);

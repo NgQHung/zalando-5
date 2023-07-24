@@ -117,10 +117,10 @@ export const Login = () => {
   useEffect(() => {
     let subscribe = true;
     if (user && subscribe) {
-      getShoppingCartById(dispatch, user, allProducts);
-      getLikedProductById(dispatch, user);
-      getAddressDeliveryById(dispatch, user);
-      getPurchasedProducts(dispatch, user);
+      // getShoppingCartById(dispatch, user, allProducts);
+      // getLikedProductById(dispatch, user);
+      // getAddressDeliveryById(dispatch, user);
+      // getPurchasedProducts(dispatch, user);
       localStorage.setItem("persist:root", "");
     }
     return () => {
