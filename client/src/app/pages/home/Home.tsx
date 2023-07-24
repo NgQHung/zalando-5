@@ -57,15 +57,15 @@ export const Home = () => {
   }, [selectedProduct]);
   let isFirst = true;
 
-  React.useEffect(() => {
-    if (isFirst) {
-      isFirst = false;
-    }
-    if (addedFavorite.length === 0) {
-      return;
-    }
-    postLikedProductById(dispatch, user, addedFavorite);
-  }, [Array(addedFavorite).length]);
+  // React.useEffect(() => {
+  //   if (isFirst) {
+  //     isFirst = false;
+  //   }
+  //   if (addedFavorite.length === 0) {
+  //     return;
+  //   }
+  //   postLikedProductById(dispatch, user, addedFavorite);
+  // }, [Array(addedFavorite).length]);
 
   return (
     <Fragment>

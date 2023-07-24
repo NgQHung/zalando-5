@@ -151,23 +151,15 @@ const WardrobeList = () => {
 
   let isFirst = true;
 
-  // useEffect(() => {
+  // React.useEffect(() => {
   //   if (isFirst) {
   //     isFirst = false;
   //   }
-  //   console.count("running...");
-  // }, [addedFavorite.length]);
-
-  // let isFirst = true;
-  React.useEffect(() => {
-    if (isFirst) {
-      isFirst = false;
-    }
-    if (!user) {
-      return;
-    }
-    postLikedProductById(dispatch, user, addedFavorite);
-  }, [Array(addedFavorite).length]);
+  //   if (!user) {
+  //     return;
+  //   }
+  //   postLikedProductById(dispatch, user, addedFavorite);
+  // }, [Array(addedFavorite).length]);
 
   React.useEffect(() => {
     let subscribe = true;
