@@ -20,9 +20,10 @@ const Header = () => {
 
   const [dataType, setDataType] = useState<string | null>("");
   const dropdown_shoppingCart = useAppSelector((state) => state.UISlice.dropdown_shoppingCart);
-  const lengthAddedShoppingCart = addedShoppingCart.length;
-  // const lengthAddedFavorite = addedFavorite ? addedFavorite.length : 0;
-  const lengthAddedFavorite = addedFavorite?.length !== 0 ? addedFavorite.length : addedFavoriteProductsFromDB.length;
+  // const lengthAddedShoppingCart = addedShoppingCart.length;
+  const lengthAddedShoppingCart = 0;
+  // const lengthAddedFavorite = addedFavorite?.length !== 0 ? addedFavorite.length : addedFavoriteProductsFromDB.length;
+  const lengthAddedFavorite = 0;
   const dispatch = useAppDispatch();
 
   const activeHandler = (type: string) => {

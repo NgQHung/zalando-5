@@ -13,8 +13,8 @@ const WARDROBE_LIKED = () => {
   // const addedFavoriteProductsFromDB = useAppSelector((state) => state.cartSlice.likedProductsId);
   const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
 
-  const addedFavoriteLength =
-    addedFavoriteProducts?.length !== 0 ? addedFavoriteProducts.length : addedFavoriteProductsFromDB.length;
+  const addedFavoriteLength = 0;
+  // addedFavoriteProducts?.length !== 0 ? addedFavoriteProducts.length : addedFavoriteProductsFromDB.length;
   const addedFavoriteToShow = addedFavoriteProducts.slice(0, 4);
   const addedFavoriteProductsFromDBToShow = addedFavoriteProductsFromDB.slice(0, 4);
   // const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
@@ -28,7 +28,7 @@ const WARDROBE_LIKED = () => {
             Oblíbené předměty
           </h2>
           <h3 className="wardrobe_list-quantity leading-[24px] font-[400] tracking-[-0.16px] whitespace-nowrap mr-3 text-[#a2a3a8]">
-            Počet produktů: {addedFavoriteLength}
+            {/* Počet produktů: {addedFavoriteLength} */}
           </h3>
           <span className="h-6 w-6 text-center">
             <FontAwesomeIcon icon={faChevronRight} className=" h-full object-cover" />

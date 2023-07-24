@@ -26,8 +26,8 @@ const Checkout = () => {
 
   useEffect(() => {
     getAddressDeliveryById(dispatch, user);
-    console.log("addressDelivery: ", addressDelivery);
-    console.log("goToCheckoutState: ", goToCheckoutState);
+    // console.log("addressDelivery: ", addressDelivery);
+    // console.log("goToCheckoutState: ", goToCheckoutState);
     // if (addressDelivery !== null) {
     //   if (Object.keys(addressDelivery).length === 0) {
     //     return;

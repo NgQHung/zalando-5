@@ -38,9 +38,9 @@ function App() {
     try {
       if (user) {
         getLikedProductById(dispatch, user);
-        if (likedProductsFromDB.length > 0) {
-          getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
-        }
+        // if (likedProductsFromDB.length > 0) {
+        //   getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
+        // }
       } else {
         getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
       }
