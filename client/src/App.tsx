@@ -13,8 +13,8 @@ import { ToastContainer } from "react-toastify";
 
 function App() {
   const dispatch = useAppDispatch();
-  const addedShoppingCart = useAppSelector((state) => state.cartSlice.addedShoppingCart);
-  const addedFavoriteProducts = useAppSelector((state) => state.cartSlice.addedFavorite);
+  const addedShoppingCart = useAppSelector((state) => state.cartSlice.addedShoppingCart) || [];
+  const addedFavoriteProducts = useAppSelector((state) => state.cartSlice.addedFavorite) || [];
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   const likedProductsFromDB = useAppSelector((state) => state.cartSlice.likedProductsId);
   // const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
@@ -32,7 +32,7 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }, [likedProductsFromDB ? likedProductsFromDB.length : [].length]);
+  }, [likedProductsFromDB.length]);
 
   // useEffect(() => {
   //   getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
@@ -45,7 +45,7 @@ function App() {
       dispatch(UIActions.loading__total({ loading__total: false }));
     }, 300);
     dispatch(cartActions.calculateTotals());
-  }, [addedShoppingCart]);
+  }, [addedShoppingCart.length]);
 
   return (
     <div className="App">

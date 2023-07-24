@@ -27,9 +27,9 @@ const WardrobeList = () => {
   const [removedProduct, setRemovedProduct] = useState<Products[]>([]);
   const products_1 = useAppSelector((state) => state.productSlice.products_1);
   const [updateProducts, setUpdateProducts] = useState<Array<Products>>([]);
-  const addedFavorite = useAppSelector((state) => state.cartSlice.addedFavorite);
+  const addedFavorite = useAppSelector((state) => state.cartSlice.addedFavorite) || [];
   // console.log("addedFavorite: ", addedFavorite);
-  const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
+  const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB) || [];
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
 
   useEffect(() => {

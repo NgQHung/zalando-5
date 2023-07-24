@@ -21,7 +21,7 @@ export const ListProducts = () => {
   const dispatch = useAppDispatch();
   const loadingPage = useAppSelector((state) => state.UISlice.loading_page);
   const [selectedProduct, setSelectedProduct] = React.useState<any>();
-  const addedFavorite = useAppSelector((state) => state.cartSlice.addedFavorite);
+  const addedFavorite = useAppSelector((state) => state.cartSlice.addedFavorite) || [];
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
 
   const selectedProductHandler = (id: number) => {

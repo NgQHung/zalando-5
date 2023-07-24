@@ -26,7 +26,7 @@ const ShoppingBasket = () => {
   const amountRemoved = useAppSelector((state) => state.UISlice.amountRemoved);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   const addedLikedProduct = useAppSelector((state) => state.cartSlice.addedFavorite);
-  const addedFavoriteProductsFromDB = useAppSelector((state) => state.cartSlice.likedProductsId);
+  const addedFavoriteProductsFromDB = useAppSelector((state) => state.cartSlice.likedProductsId) || [];
 
   const amountOfProducts = addedShoppingCart.reduce((acc, curr) => curr.amount + acc, 0);
 
