@@ -9,43 +9,44 @@ import { UIActions } from "./stores/UI-slice";
 import "react-toastify/dist/ReactToastify.css";
 
 import { ToastContainer } from "react-toastify";
-// let isFirst = true;
 
 function App() {
   const dispatch = useAppDispatch();
-  const addedShoppingCart = useAppSelector((state) => state.cartSlice.addedShoppingCart) || [];
-  const addedFavoriteProducts = useAppSelector((state) => state.cartSlice.addedFavorite) || [];
+  const addedShoppingCart = useAppSelector((state) => state.cartSlice.addedShoppingCart);
+  const addedFavoriteProducts = useAppSelector((state) => state.cartSlice.addedFavorite);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   const likedProductsFromDB = useAppSelector((state) => state.cartSlice.likedProductsId);
   // const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
 
-  // useEffect(() => {
-  //   try {
-  //     if (user) {
-  //       getLikedProductById(dispatch, user);
-  //       if (likedProductsFromDB.length > 0) {
-  //         getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
-  //       }
-  //     } else {
-  //       getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [Array(likedProductsFromDB).length]);
+  // if()
+
+  useEffect(() => {
+    try {
+      if (user) {
+        getLikedProductById(dispatch, user);
+        if (likedProductsFromDB.length > 0) {
+          getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
+        }
+      } else {
+        getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [likedProductsFromDB.length]);
 
   // useEffect(() => {
   //   getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
 
   // }, [])
 
-  // useEffect(() => {
-  //   dispatch(UIActions.loading__total({ loading__total: true }));
-  //   setTimeout(() => {
-  //     dispatch(UIActions.loading__total({ loading__total: false }));
-  //   }, 300);
-  //   dispatch(cartActions.calculateTotals());
-  // }, [Array(addedShoppingCart).length]);
+  useEffect(() => {
+    dispatch(UIActions.loading__total({ loading__total: true }));
+    setTimeout(() => {
+      dispatch(UIActions.loading__total({ loading__total: false }));
+    }, 300);
+    dispatch(cartActions.calculateTotals());
+  }, [Array(addedShoppingCart).length]);
 
   return (
     <div className="App">
