@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./app/layouts/DefaultLayout";
@@ -34,7 +35,7 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }, [likedProductsFromDB.length]);
+  }, [likedProductsFromDB.length, getLikedProductById, getProducts]);
 
   // useEffect(() => {
   //   getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
