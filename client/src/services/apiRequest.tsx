@@ -163,7 +163,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
+      "Access-Control-Allow-Origin": "https://zalando-clone-five.vercel.app",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
     withCredentials: false,

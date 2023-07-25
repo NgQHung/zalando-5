@@ -57,7 +57,6 @@
     "eject": "react-scripts eject",
     "eslint": "eslint src/index.ts"
   },
-  "proxy": "https://zalando-5-be.vercel.app",
   "eslintConfig": {
     "extends": [
       "react-app",
