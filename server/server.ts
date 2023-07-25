@@ -7,6 +7,10 @@ import cookieParser from 'cookie-parser';
 import serveStatic from 'serve-static';
 import path from 'path';
 import multer from 'multer';
+import helmet from 'helmet';
+import noCache from 'nocache';
+import requestIp from 'request-ip';
+import { errorMiddleware } from './src/middlewares/errorMiddlewares';
 var cors = require('cors');
 var upload = multer();
 
@@ -17,21 +21,14 @@ env.config({ path: path.resolve(__dirname, './.env') });
 
 const app = express();
 
-// app.options('/*', (_, res) => {
-//   res.sendStatus(200);
-// });
-
 // serve static
 app.use(serveStatic('public/ftp', { index: ['default.html', 'default.htm'] }));
 app.use('/dist', express.static(path.resolve(__dirname, '../client/dist')));
-// router.get('/', (req, res: Response) => {
-//   res.download(path.resolve(__dirname, '../client/public/index.html'));
-// });
 app.use('/', express.static(path.join(__dirname, '../client/public/index.html')));
 
 const corsOptions = {
   credentials: true,
-  origin: true,
+  origin: ['https://zalando-clone-five.vercel.app', 'http://localhost:3000'],
 };
 
 app.use(cors(corsOptions));
@@ -49,18 +46,27 @@ app.use(function (_req, res: Response, next: NextFunction) {
   next();
 });
 
-// app.use(function (req, res, next) {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', '*');
-//   res.setHeader('Access-Control-Allow-Headers', '*');
-//   res.setHeader('Access-Control-Allow-Credentials', 'true');
-//   next();
-// });
+function initializeSecurity() {
+  app.use(noCache());
+  app.use(helmet.frameguard());
+  app.use(helmet.hidePoweredBy());
+  app.use(helmet.hsts());
+  app.use(helmet.ieNoOpen());
+  app.use(helmet.noSniff());
+  app.use(helmet.xssFilter());
+  app.use(requestIp.mw());
+
+  // morganMiddleware(app);
+}
+
+function initializeErrorHandler() {
+  app.use(errorMiddleware);
+}
 
 // parse application/x-www-form-urlencoded
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 /** Parse the body - middleware */
 // for parsing application/json
 app.use(express.json());
@@ -70,14 +76,17 @@ app.use(express.urlencoded({ extended: true }));
 
 // for parsing multipart/form-data
 app.use(upload.array('data'));
+
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
   // res.setHeader('Cache-Control', 'max-age=1209600');
   // res.setHeader('Cache-Control', 'no-cache');
   next();
 });
 
+initializeSecurity();
 // routes
 app.use(router);
+initializeErrorHandler();
 
 mongoose
   .connect(process.env.MONGO_URI)
