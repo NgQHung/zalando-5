@@ -46,22 +46,22 @@ app.use(function (_req, res: Response, next: NextFunction) {
   next();
 });
 
-function initializeSecurity() {
-  app.use(noCache());
-  app.use(helmet.frameguard());
-  app.use(helmet.hidePoweredBy());
-  app.use(helmet.hsts());
-  app.use(helmet.ieNoOpen());
-  app.use(helmet.noSniff());
-  app.use(helmet.xssFilter());
-  app.use(requestIp.mw());
+// function initializeSecurity() {
+//   app.use(noCache());
+//   app.use(helmet.frameguard());
+//   app.use(helmet.hidePoweredBy());
+//   app.use(helmet.hsts());
+//   app.use(helmet.ieNoOpen());
+//   app.use(helmet.noSniff());
+//   app.use(helmet.xssFilter());
+//   app.use(requestIp.mw());
 
-  // morganMiddleware(app);
-}
+//   // morganMiddleware(app);
+// }
 
-function initializeErrorHandler() {
-  app.use(errorMiddleware);
-}
+// function initializeErrorHandler() {
+//   app.use(errorMiddleware);
+// }
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -83,10 +83,10 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
   next();
 });
 
-initializeSecurity();
+// initializeSecurity();
 // routes
 app.use(router);
-initializeErrorHandler();
+// initializeErrorHandler();
 
 mongoose
   .connect(process.env.MONGO_URI)
