@@ -23,12 +23,7 @@ export const requestLogin = (
     dispatch(UIActions.loadingPage(true));
     setTimeout(async () => {
       await authAxios
-        .post(`/v1/auth/login`, params, {
-          headers: {
-            "access-control-allow-origin": "https://zalando-5.vercel.app",
-            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-          },
-        })
+        .post(`/v1/auth/login`, params)
         .then((data) => {
           dispatch(userActions.loginHandler(data.data));
           localStorage.setItem("User", JSON.stringify(data.data));
@@ -60,12 +55,7 @@ export const requestSignup = (dispatch: Dispatch, user: User_signup, navigate: N
 
     setTimeout(async () => {
       await authAxios
-        .post(`/v1/auth/register`, params, {
-          headers: {
-            "access-control-allow-origin": "https://zalando-5.vercel.app",
-            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-          },
-        })
+        .post(`/v1/auth/register`, params)
         .then((res) => {
           setTimeout(() => {
             toast.update(id, {
