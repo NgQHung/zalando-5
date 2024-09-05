@@ -165,7 +165,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
       // origin: "https://zalando-5-be.vercel.app",
-      "Access-Control-Allow-Origin": "https://zalando-5-be.vercel.app/",
+      // "Access-Control-Allow-Origin": "https://zalando-5-be.vercel.app/",
       "access-control-allow-origin": "https://zalando-5-be.vercel.app/",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
