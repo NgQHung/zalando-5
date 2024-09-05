@@ -14,9 +14,9 @@ const WARDROBE_LIKED = () => {
   const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
 
   const addedFavoriteLength =
-    addedFavoriteProducts?.length !== 0 ? addedFavoriteProducts.length : addedFavoriteProductsFromDB.length;
+    addedFavoriteProducts?.length !== 0 ? addedFavoriteProducts.length : addedFavoriteProductsFromDB?.length;
   const addedFavoriteToShow = addedFavoriteProducts.slice(0, 4);
-  const addedFavoriteProductsFromDBToShow = addedFavoriteProductsFromDB.slice(0, 4);
+  const addedFavoriteProductsFromDBToShow = addedFavoriteProductsFromDB?.slice(0, 4);
   // const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   // const dispatch = useAppDispatch();
 

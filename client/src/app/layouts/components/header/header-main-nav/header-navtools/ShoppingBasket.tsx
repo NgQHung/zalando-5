@@ -92,7 +92,7 @@ const ShoppingBasket = () => {
     }
     if (addedLikedProduct.length > 0) {
       postLikedProductById(dispatch, user, addedLikedProduct);
-    } else if (addedFavoriteProductsFromDB.length > 0) {
+    } else if (addedFavoriteProductsFromDB?.length > 0) {
       postLikedProductById(dispatch, user, addedFavoriteProductsFromDB);
     }
 
