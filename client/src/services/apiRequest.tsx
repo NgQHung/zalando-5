@@ -157,13 +157,11 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
     toast.error(error.response.data ? error.response.data.message : "Something went wrong");
   }
 };
-// https://zalando-5-be.vercel.app
 export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      // origin: "https://zalando-5-be.vercel.app",
       "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
