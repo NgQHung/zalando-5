@@ -37,11 +37,6 @@ function App() {
     }
   }, [likedProductsFromDB?.length, getLikedProductById, getProducts]);
 
-  // useEffect(() => {
-  //   getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
-
-  // }, [])
-
   useEffect(() => {
     dispatch(UIActions.loading__total({ loading__total: true }));
     setTimeout(() => {
