@@ -30,6 +30,7 @@ app.use('/', express.static(path.join(__dirname, '../client/public/index.html'))
 const corsOptions = {
   credentials: true,
   origin: 'https://zalando-5.vercel.app',
+  enablePreflight: true,
   // [
   //   'https://zalando-5.vercel.app',
   //   'https://zalando-5-be.vercel.app',
