@@ -11,6 +11,7 @@ import helmet from 'helmet';
 import noCache from 'nocache';
 import requestIp from 'request-ip';
 import { errorMiddleware } from './src/middlewares/errorMiddlewares';
+import cacheControl from 'express-cache-controller';
 var cors = require('cors');
 var upload = multer();
 
@@ -20,7 +21,7 @@ const PORT = process.env.PORT || 8080;
 env.config({ path: path.resolve(__dirname, './.env') });
 
 const app = express();
-
+app.use(cacheControl());
 // serve static
 app.use(serveStatic('public/ftp', { index: ['default.html', 'default.htm'] }));
 app.use('/dist', express.static(path.resolve(__dirname, '../client/dist')));
