@@ -25,7 +25,7 @@ export const requestLogin = (
       await authAxios
         .post(`/v1/auth/login`, params, {
           headers: {
-            "access-control-allow-origin": "https://zalando-5-be.vercel.app",
+            "access-control-allow-origin": "https://zalando-5.vercel.app",
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           },
         })
@@ -62,7 +62,7 @@ export const requestSignup = (dispatch: Dispatch, user: User_signup, navigate: N
       await authAxios
         .post(`/v1/auth/register`, params, {
           headers: {
-            "access-control-allow-origin": "https://zalando-5-be.vercel.app",
+            "access-control-allow-origin": "https://zalando-5.vercel.app",
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           },
         })
