@@ -29,7 +29,13 @@ app.use('/', express.static(path.join(__dirname, '../client/public/index.html'))
 // 'https://zalando-5.vercel.app/',
 const corsOptions = {
   credentials: true,
-  origin: ['https://zalando-5-be.vercel.app', 'http://localhost:3000'],
+  origin: 'https://zalando-5.vercel.app',
+  // [
+  //   'https://zalando-5.vercel.app',
+  //   'https://zalando-5-be.vercel.app',
+  //   'http://localhost:3000',
+  //   'https://zalando-clone-five.vercel.app',
+  // ],
 };
 
 app.use(cors(corsOptions));
