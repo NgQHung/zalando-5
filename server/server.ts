@@ -26,9 +26,10 @@ app.use(serveStatic('public/ftp', { index: ['default.html', 'default.htm'] }));
 app.use('/dist', express.static(path.resolve(__dirname, '../client/dist')));
 app.use('/', express.static(path.join(__dirname, '../client/public/index.html')));
 // https://zalando-clone-five.vercel.app
+// 'https://zalando-5.vercel.app/',
 const corsOptions = {
   credentials: true,
-  origin: ['https://zalando-5.vercel.app', 'http://localhost:3000'],
+  origin: ['https://zalando-5-be.vercel.app/', 'http://localhost:3000'],
 };
 
 app.use(cors(corsOptions));
