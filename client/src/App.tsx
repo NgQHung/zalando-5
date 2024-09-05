@@ -35,7 +35,7 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }, [likedProductsFromDB.length, getLikedProductById, getProducts]);
+  }, [likedProductsFromDB?.length, getLikedProductById, getProducts]);
 
   // useEffect(() => {
   //   getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
