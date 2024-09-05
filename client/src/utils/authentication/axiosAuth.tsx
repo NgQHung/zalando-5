@@ -1,6 +1,5 @@
 import axios from "axios";
 export const uriBase = {
-  // server: "http://localhost:8080",
   server: "https://zalando-5-be.vercel.app",
 };
 

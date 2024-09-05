@@ -33,7 +33,7 @@ export const getProducts = async (
   try {
     dispatch(UIActions.loadingPage(true));
     setTimeout(async () => {
-      response = await axios.get(`${uriBase.server}/products`);
+      response = await axios.get(`${uriBase.server}/products`, {});
       const all = await response.data;
       const newAllProduct = await all.map((item: Products) => {
         return { ...item, isFavorite: false };
@@ -164,9 +164,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
       // origin: "https://zalando-5-be.vercel.app",
-      "Access-Control-Allow-Origin": "https://zalando-5-be.vercel.app",
-      // "access-control-allow-origin": "https://zalando-5-be.vercel.app/",
-      // "access-control-allow-origin": "https://zalando-5.vercel.app",
+      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
     withCredentials: false,
