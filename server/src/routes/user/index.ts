@@ -44,6 +44,7 @@ userRouter.get(`${url}/:id/purchased-products`, middleware.verifyToken, userCont
 
 // get data of user
 userRouter.get(`${url}/:id/shopping-cart/products`, middleware.verifyToken, userController.getProductsFromShoppingCartById);
-userRouter.get(`${url}/:id/liked/products`, middleware.verifyToken, userController.getProductsFromLiked);
+userRouter.get(`${url}/:id/liked/products`,  userController.getProductsFromLiked);
+  // middleware.verifyToken, 
 
 export default userRouter;
