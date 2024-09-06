@@ -4,7 +4,8 @@ import userController from '../../controllers/userController';
 import middleware from '../../middlewares/requireAuth';
 import { createProxyMiddleware, Filter, Options, RequestHandler } from 'http-proxy-middleware';
 const userRouter = express.Router();
-const url = '/v1/user'
+// const url = '/v1/user'
+const url = ''
 userRouter.use(function (_req, res: Response, next: NextFunction) {
   res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI);
   res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
@@ -44,7 +45,8 @@ userRouter.get(`${url}/:id/purchased-products`, middleware.verifyToken, userCont
 
 // get data of user
 userRouter.get(`${url}/:id/shopping-cart/products`, middleware.verifyToken, userController.getProductsFromShoppingCartById);
-userRouter.get(`${url}/:id/liked/products`,  userController.getProductsFromLiked);
-  // middleware.verifyToken, 
+userRouter.get(`${url}/:id/liked/products`,  
+  middleware.verifyToken, 
+  userController.getProductsFromLiked);
 
 export default userRouter;

@@ -15,6 +15,7 @@ router.get('/product/:id', getProductsDetail);
 router.use('/v1/auth', authRouter);
 
 // user
-router.use('/v1/user', userRouter);
+// router.use('/v1/user', userRouter);
+router.use(userRouter);
 
 export default router;
