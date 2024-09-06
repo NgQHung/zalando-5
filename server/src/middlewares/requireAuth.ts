@@ -18,12 +18,12 @@ const middleware = {
         }
         req.user = user;
         res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
-  );
-  res.header('Access-Control-Allow-Credentials', 'true');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+        res.header(
+          'Access-Control-Allow-Headers',
+          'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
+        );
+        res.header('Access-Control-Allow-Credentials', 'true');
         next();
       });
     } catch (error) {
@@ -35,14 +35,14 @@ const middleware = {
   verifyTokenAndAdmin: async (req: Request, res: Response, next: NextFunction) => {
     try {
       middleware.verifyToken(req, res, () => {
+        res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI);
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+        res.header(
+          'Access-Control-Allow-Headers',
+          'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
+        );
+        res.header('Access-Control-Allow-Credentials', 'true');
         if (req.user?.id == req.params.id || req.params.admin) {
-          res.header('Access-Control-Allow-Origin', process.env.CLIENT_URI);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Content-Type, Access-Control-Allow-Headers, X-Requested-With, Authorization'
-  );
-  res.header('Access-Control-Allow-Credentials', 'true');
           next();
         } else {
           return res.status(403).json('You are not allowed to delete it');
