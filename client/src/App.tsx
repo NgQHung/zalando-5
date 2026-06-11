@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import DefaultLayout from "./app/layouts/DefaultLayout";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
@@ -17,34 +17,25 @@ function App() {
   const addedFavoriteProducts = useAppSelector((state) => state.cartSlice.addedFavorite);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   const likedProductsFromDB = useAppSelector((state) => state.cartSlice.likedProductsId);
+  // const addedFavoriteProductsFromDB = useAppSelector((state) => state.productSlice.favoriteProductFromDB);
 
-  const [likedProductsLoaded, setLikedProductsLoaded] = useState(false);
-
-  useEffect(() => {
-    const fetchLikedProducts = async () => {
-      if (!user?._id) {
-        setLikedProductsLoaded(true);
-        return;
-      }
-
-      try {
-        setLikedProductsLoaded(false);
-        await getLikedProductById(dispatch, user);
-        setLikedProductsLoaded(true);
-      } catch (error) {
-        console.log(error);
-        setLikedProductsLoaded(true);
-      }
-    };
-
-    fetchLikedProducts();
-  }, [dispatch, user?._id, user?.accessToken]);
+  // if()
 
   useEffect(() => {
-    if (user?._id && !likedProductsLoaded) return;
+    try {
+      if (user) {
+        getLikedProductById(dispatch, user);
 
-    getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
-  }, [dispatch, user?._id, likedProductsLoaded, likedProductsFromDB, addedFavoriteProducts]);
+        if (likedProductsFromDB.length > 0) {
+          getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
+        }
+      } else {
+        getProducts(dispatch, user, addedFavoriteProducts, likedProductsFromDB);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [likedProductsFromDB?.length, getLikedProductById, getProducts]);
 
   useEffect(() => {
     dispatch(UIActions.loading__total({ loading__total: true }));
