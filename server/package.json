@@ -63,5 +63,8 @@
     "@types/multer": "^1.4.7",
     "@types/redux-persist": "^4.3.1",
     "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
