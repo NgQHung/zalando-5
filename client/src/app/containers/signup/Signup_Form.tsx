@@ -1,6 +1,6 @@
 import { faCircleExclamation, faEye, faEyeSlash, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { memo, useRef } from "react";
+import React, { memo } from "react";
 // import { Link } from "react-router-dom";
 import { User_signup } from "../../../interfaces/authentication";
 import { useAppSelector } from "../../hooks";
@@ -100,8 +100,8 @@ const SIGNUP_FORM = ({
                 (firstNameInputError || emptyFirstNameInputError
                   ? "outline_onHover_error text-[#ffff] bg-[#eb0037]"
                   : isClick && typeInput === "firstName"
-                  ? "bg-[#1a1a1a] text-[#ffff] "
-                  : "")
+                    ? "bg-[#1a1a1a] text-[#ffff] "
+                    : "")
               }
             >
               Křestní jméno*
@@ -142,8 +142,8 @@ const SIGNUP_FORM = ({
                 (lastNameInputError || emptyLastNameInputError
                   ? "outline_onHover_error text-[#ffff] bg-[#eb0037]"
                   : isClick && typeInput === "lastName"
-                  ? "bg-[#1a1a1a] text-[#ffff] "
-                  : "")
+                    ? "bg-[#1a1a1a] text-[#ffff] "
+                    : "")
               }
             >
               Příjmení*
@@ -184,8 +184,8 @@ const SIGNUP_FORM = ({
                 (emailInputError || emptyEmailInputError
                   ? "outline_onHover_error text-[#ffff] bg-[#eb0037]"
                   : isClick && typeInput === "email"
-                  ? "bg-[#1a1a1a] text-[#ffff] "
-                  : "")
+                    ? "bg-[#1a1a1a] text-[#ffff] "
+                    : "")
               }
             >
               E-mailová adresa*
@@ -226,8 +226,8 @@ const SIGNUP_FORM = ({
                 (passwordInputError || emptyPasswordInputError
                   ? "outline_onHover_error text-[#ffff] bg-[#eb0037]"
                   : isClick && typeInput === "password"
-                  ? "bg-[#1a1a1a] text-[#ffff] "
-                  : "")
+                    ? "bg-[#1a1a1a] text-[#ffff] "
+                    : "")
               }
             >
               Heslo*

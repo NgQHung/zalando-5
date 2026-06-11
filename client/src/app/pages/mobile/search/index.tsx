@@ -8,7 +8,7 @@ import useOnClickOutside from "../../../hooks/useOnClickOutside";
 // import { UseOutsideClick } from "../../../../utils/useOutsideClick";
 const SearchMobile = () => {
   const navigate = useNavigate();
-  const [searchMobileClick, setSearchMobileClick] = React.useState(false);
+  const [, setSearchMobileClick] = React.useState(false);
 
   const onClickHandler = (e: React.MouseEvent<HTMLInputElement, MouseEvent>, type?: string) => {
     if (e.currentTarget.name === "searchMobile") {

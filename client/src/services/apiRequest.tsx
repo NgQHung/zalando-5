@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios from "axios";
 import { toast } from "react-toastify";
 import { Dispatch } from "redux";
 import { AddressDelivery } from "../interfaces/addressDelivery";
@@ -19,8 +19,6 @@ export interface User {
   firstName: string;
   _id: string;
 }
-
-var config = {};
 
 // get all products
 export const getProducts = async (

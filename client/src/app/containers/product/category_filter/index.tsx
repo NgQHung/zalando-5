@@ -4,7 +4,7 @@ import React, { Fragment, memo } from "react";
 import { FILTER_DATA } from "../../../../utils/data/filter";
 import "./category_filter.css";
 
-const Category_filter = () => {
+const CategoryFilter = () => {
   const [dropdown, setDropdown] = React.useState(false);
   const [typeFilter, setTypeFilter] = React.useState<string>("");
   const [allFilter, setAllFilter] = React.useState(false);
@@ -87,4 +87,4 @@ const Category_filter = () => {
   );
 };
 
-export default memo(Category_filter);
+export default memo(CategoryFilter);

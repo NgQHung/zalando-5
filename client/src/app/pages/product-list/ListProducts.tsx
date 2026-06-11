@@ -9,7 +9,7 @@ import Card from "../../components/UI/card/Card";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { Products } from "../../../interfaces/Products";
 import { productActions } from "../../../stores/product-slice";
-import Category_filter from "../../containers/product/category_filter";
+import CategoryFilter from "../../containers/product/category_filter";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../../components/ErrorBoundary";
 import ready from "../../../utils/intersectionObserver";
@@ -132,7 +132,7 @@ export const ListProducts = () => {
               {/* mobile end */}
 
               <div className="basis-full max-w-full lg:basis-3/4 lg:max-w-3/4 mt-[24px] ">
-                <Category_filter />
+                <CategoryFilter />
                 <p className="px-2 mb-3 pt-4 text-[14px] font-[400] text-[#66676e] flex items-center">
                   <span>{allProducts.length} produktů</span>
                   <span className="p-2">

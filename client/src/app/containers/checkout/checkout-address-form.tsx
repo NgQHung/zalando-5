@@ -22,17 +22,17 @@ const CheckoutAddressForm = ({ setAdressIsClicked }: IProps) => {
   const {
     onChangeHandler: firstNameOnChange,
     input: firstNameInput,
-    hasError: firstNameHasError,
+    // hasError: firstNameHasError,
   } = Use_Input(inputIsValid);
   const {
     onChangeHandler: lastNameOnChange,
     input: lastNameInput,
-    hasError: lastNameHasError,
+    // hasError: lastNameHasError,
   } = Use_Input(inputIsValid);
-  const { onChangeHandler: addressOnChange, input: addressInput, hasError: addressHasError } = Use_Input(inputIsValid);
-  const { onChangeHandler: infoOnChange, input: infoInput, hasError: infoHasError } = Use_Input(inputIsValid);
-  const { onChangeHandler: pscOnChange, input: pscInput, hasError: pscHasError } = Use_Input(inputIsValid);
-  const { onChangeHandler: cityOnChange, input: cityInput, hasError: cityHasError } = Use_Input(inputIsValid);
+  const { onChangeHandler: addressOnChange, input: addressInput } = Use_Input(inputIsValid);
+  const { onChangeHandler: infoOnChange, input: infoInput } = Use_Input(inputIsValid);
+  const { onChangeHandler: pscOnChange, input: pscInput } = Use_Input(inputIsValid);
+  const { onChangeHandler: cityOnChange, input: cityInput } = Use_Input(inputIsValid);
   const addressDelivery = useAppSelector((state) => state.checkoutSlice.addressDelivery);
   const user = useAppSelector((state) => state.userSlice.user) || JSON.parse(localStorage.getItem("User")!);
   const inputChange = () => {};
