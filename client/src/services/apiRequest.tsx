@@ -94,12 +94,7 @@ export const getDetailProduct = async (dispatch: Dispatch, id: number | null, us
   try {
     dispatch(UIActions.loadingPage(true));
     setTimeout(async () => {
-      response = await axios.get(`${uriBase.server}/product/${id ? id : getSelectedId}`, {
-        headers: {
-          "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
-          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        },
-      });
+      response = await axios.get(`${uriBase.server}/product/${id ? id : getSelectedId}`);
       const detailProduct = response.data;
       dispatch(productActions.selectedProductHandler(detailProduct));
       dispatch(UIActions.loadingPage(false));
@@ -115,8 +110,6 @@ export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: 
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
   });
   try {
@@ -130,8 +123,6 @@ export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProd
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
   });
   let response;
@@ -154,8 +145,6 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
 
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
     withCredentials: true,
   });
@@ -171,8 +160,6 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
     withCredentials: false,
   });
@@ -190,8 +177,6 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
   });
 
@@ -207,8 +192,6 @@ export const getAddressDeliveryById = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
   });
 
@@ -233,8 +216,6 @@ export const postPurchasedProducts = async (
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
   });
 
@@ -250,8 +231,6 @@ export const getPurchasedProducts = async (dispatch: Dispatch, user: any) => {
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
-      "Access-Control-Allow-Origin": "https://zalando-5.vercel.app",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
     // withCredentials: true,
   });
