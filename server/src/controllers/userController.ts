@@ -119,25 +119,32 @@ const userController = {
     const { data } = req.body;
 
     try {
-      const existingId = await LikedProductModel.findOne({ _id: id });
-      let product;
-      if (existingId) {
-        product = await LikedProductModel.updateOne(
-          {
-            _id: id,
-          },
-          { data: data }
-        );
-      } else {
-        product = await LikedProductModel.create({
-          _id: id,
-          data: data,
+      if (!id) {
+        return res.status(400).json({
+          data: null,
+          message: 'Missing user id',
         });
       }
 
-      return res.status(200).json(product);
+      const product = await LikedProductModel.findByIdAndUpdate(
+        id,
+        {
+          _id: id,
+          data,
+        },
+        {
+          new: true,
+          upsert: true,
+        }
+      );
+
+      return res.status(200).json({
+        data: product,
+        message: 'Liked products updated',
+      });
     } catch (error) {
-      const err = error as AxiosError;
+      const err = error as Error;
+
       return res.status(500).json({
         data: null,
         message: 'Oops!!! Something went wrong.',
