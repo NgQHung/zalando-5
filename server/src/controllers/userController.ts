@@ -50,26 +50,33 @@ const userController = {
     const { data } = req.body;
 
     try {
-      const existingId = await AddressDelivery.findOne({ _id: id });
-      let info;
-      if (existingId) {
-        info = await AddressDelivery.updateOne(
-          {
-            _id: id,
-          },
-          { $set: { data: data } }
-        );
-      } else {
-        info = await AddressDelivery.create({
-          _id: id,
-          data: data,
+      if (!data) {
+        return res.status(400).json({
+          data: null,
+          message: 'Missing address data',
         });
       }
 
-      // return res.status(200).json(req.body);
-      return res.status(200).json(existingId);
+      const info = await AddressDelivery.findByIdAndUpdate(
+        id,
+        {
+          _id: id,
+          data,
+        },
+        {
+          new: true,
+          upsert: true,
+          runValidators: true,
+        }
+      );
+
+      return res.status(200).json({
+        data: info,
+        message: 'Address delivery updated',
+      });
     } catch (error) {
-      const err = error as AxiosError;
+      const err = error as Error;
+
       return res.status(500).json({
         data: null,
         message: 'Oops!!! Something went wrong.',
