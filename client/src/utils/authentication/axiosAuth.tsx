@@ -1,6 +1,6 @@
 import axios from "axios";
 export const uriBase = {
-  server: "https://zalando-5-be.vercel.app",
+  server: "https://zalando-5.vercel.app",
 };
 
 export const authAxios = axios.create({
