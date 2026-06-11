@@ -16,21 +16,19 @@ const upload = multer();
 
 const PORT = process.env.PORT || 8080;
 
-const allowedOrigins = ['https://zalando-5.vercel.app', 'http://localhost:3000'];
+// const allowedOrigins = ['https://zalando-5.vercel.app', 'http://localhost:3000'];
 
 app.use((req, res, next) => {
-  const origin = req.headers.origin;
+  console.log('REQUEST:', req.method, req.path, req.headers.origin);
 
-  if (origin && allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  }
-
+  res.setHeader('Access-Control-Allow-Origin', 'https://zalando-5.vercel.app');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+  res.setHeader('X-Debug-Cors', 'cors-middleware-hit');
 
   if (req.method === 'OPTIONS') {
-    return res.sendStatus(204);
+    return res.status(204).end();
   }
 
   next();
