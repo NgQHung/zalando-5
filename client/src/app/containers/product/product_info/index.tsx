@@ -139,10 +139,6 @@ const Product_info = ({ selectedProduct }: Iprops) => {
     }
   }, [selectedFavoriteProduct]);
 
-  React.useEffect(() => {
-    // const productIndex = getSelectedId
-  }, []);
-
   return (
     <Fragment>
       <div className="mx-6 mt-6 md:m-0 md:min-w-1/2 md:max-w-1/2 flex flex-col md:basis-1/2 ">
