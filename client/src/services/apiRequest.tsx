@@ -111,6 +111,7 @@ export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: 
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-Type": "application/json",
     },
   });
   try {
@@ -146,6 +147,7 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
 
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-Type": "application/json",
     },
     withCredentials: true,
   });
@@ -181,6 +183,7 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-Type": "application/json",
     },
   });
 
@@ -222,6 +225,7 @@ export const postPurchasedProducts = async (
     baseURL: uriBase.server,
     headers: {
       Authorization: `Bearer ${user?.accessToken}`,
+      "Content-Type": "application/json",
     },
   });
 
