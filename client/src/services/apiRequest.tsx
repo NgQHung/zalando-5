@@ -105,7 +105,8 @@ export const getDetailProduct = async (dispatch: Dispatch, id: number | null, us
 };
 
 export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: Products[] | ShoppingProducts[]) => {
-  console.count("post data to id of user");
+  if (!user?._id) return;
+
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {
@@ -119,27 +120,27 @@ export const postShoppingCartById = async (dispatch: Dispatch, user: any, data: 
   }
 };
 export const getShoppingCartById = async (dispatch: Dispatch, user: any, allProducts: Products[]) => {
-  const authAxios = axios.create({
-    baseURL: uriBase.server,
-    headers: {
-      Authorization: `Bearer ${user?.accessToken}`,
-    },
-  });
-  let response;
+  if (!user?._id || !user?.accessToken) return;
 
   try {
     dispatch(UIActions.loadingPage(true));
-    setTimeout(async () => {
-      response = await authAxios.get(`${uriBase.server}/v1/user/${user?._id}/shopping-cart/products`);
-      dispatch(cartActions.getShoppingCart(response.data.data));
-      dispatch(UIActions.loadingPage(false));
-    }, 1000);
+
+    const response = await axios.get(`${uriBase.server}/v1/user/${user._id}/shopping-cart/products`, {
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    });
+
+    dispatch(cartActions.getShoppingCart(response.data.data));
   } catch (error: any) {
-    toast.error(error.response.data ? error.response.data.message : "Something went wrong");
+    toast.error(error?.response?.data?.message || "Something went wrong");
+  } finally {
+    dispatch(UIActions.loadingPage(false));
   }
 };
-
 export const postLikedProductById = async (dispatch: Dispatch, user: any, data: ILikedProductsId[]) => {
+  if (!user?._id) return;
+
   const authAxios = axios.create({
     baseURL: uriBase.server,
 
@@ -156,6 +157,8 @@ export const postLikedProductById = async (dispatch: Dispatch, user: any, data: 
   }
 };
 export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
+  if (!user?._id) return;
+
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {
@@ -173,6 +176,7 @@ export const getLikedProductById = async (dispatch: Dispatch, user: any) => {
 };
 
 export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: AddressDelivery) => {
+  if (!user?._id) return;
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {
@@ -188,6 +192,7 @@ export const postAddressDelivery = async (dispatch: Dispatch, user: any, data: A
 };
 
 export const getAddressDeliveryById = async (dispatch: Dispatch, user: any) => {
+  if (!user?._id) return;
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {
@@ -212,6 +217,7 @@ export const postPurchasedProducts = async (
     methodPayment: string;
   }
 ) => {
+  if (!user?._id) return;
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {
@@ -227,6 +233,7 @@ export const postPurchasedProducts = async (
 };
 
 export const getPurchasedProducts = async (dispatch: Dispatch, user: any) => {
+  if (!user?._id) return;
   const authAxios = axios.create({
     baseURL: uriBase.server,
     headers: {
