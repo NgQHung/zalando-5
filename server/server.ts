@@ -1,5 +1,4 @@
 import express from 'express';
-import { NextFunction, Response } from 'express';
 import env from 'dotenv';
 import bodyParser from 'body-parser';
 import router from './src/routes';
@@ -10,24 +9,32 @@ import path from 'path';
 import multer from 'multer';
 import cacheControl from 'express-cache-controller';
 
-const cors = require('cors');
-
-const PORT = process.env.PORT || 8080;
-
 env.config({ path: path.resolve(__dirname, './.env') });
 
 const app = express();
 const upload = multer();
 
-const corsOptions = {
-  origin: ['https://zalando-5.vercel.app', 'http://localhost:3000'],
-  credentials: true,
-  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  optionsSuccessStatus: 204,
-};
+const PORT = process.env.PORT || 8080;
 
-app.use(cors(corsOptions));
+const allowedOrigins = ['https://zalando-5.vercel.app', 'http://localhost:3000'];
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
 
 app.use(cacheControl());
 
@@ -43,10 +50,6 @@ app.use(upload.array('data'));
 
 app.use(serveStatic('public/ftp', { index: ['default.html', 'default.htm'] }));
 app.use('/dist', express.static(path.resolve(__dirname, '../client/dist')));
-
-app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
-  next();
-});
 
 app.use(router);
 
