@@ -54,7 +54,7 @@ app.use(router);
 mongoose
   .connect(process.env.MONGO_URI as string)
   .then(() => {
-    console.log('MongoDB connected');
+    app.listen(PORT, () => console.log('listening on port ', PORT));
   })
   .catch((error) => {
     console.log(error);
